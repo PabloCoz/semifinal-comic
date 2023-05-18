@@ -14,7 +14,7 @@
                             <h1 class="text-3xl font-extrabold font-josefin text-white uppercase text-center">
                                 {{ $comic->title }}</h1>
                             <p class="md:text-xl font-bold font-josefin text-white mt-3 mx-3 text-center">
-                                Creado por: <a href="{{-- {{ route('users.show', $comic->user) }} --}}"
+                                Creado por: <a href="{{ route('users.show', $comic->user) }}"
                                     class="uppercase hover:underline">{{ $comic->user->username }}</a>
                             </p>
                         </div>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="flex items-center justify-center mt-10">
                             @auth
-                                <form action="{{-- {{ route('comics.enrolled', $comic) }} --}}" method="POST">
+                                <form action="{{ route('comics.enrolled', $comic) }}" method="POST">
                                     @csrf
                                     <button type="submit"
                                         class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin uppercase tracking-widest">

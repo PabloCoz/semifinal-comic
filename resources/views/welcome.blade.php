@@ -22,6 +22,73 @@
             </div>
         </div>
 
+        <section class="bg-black py-10">
+            <div class="max-w-3xl mx-auto">
+                <hr class="border-2 border-dashed border-skcomic my-4">
+                <h1 class="font-josefin font-bold text-3xl text-white text-center">Empieza con 4 simples pasos</h1>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-3 mt-6 divide-y-4 space-y-4 md:space-y-0 md:divide-y-0 divide-white">
+                    <div class>
+                        <div class="flex items-center justify-center">
+                            <div>
+                                <img src="{{ asset('img/vector/1.svg') }}" class="h-60 w-full object-contain"
+                                    loading="lazy">
+                                <div class="mt-3">
+                                    <h1 class="bg-white p-2 mx-16 text-center text-2xl font-bold font-josefin rounded-full">
+                                        Paso 1</h1>
+                                    <p class="text-xl text-white text-center font-bold mt-5">Crea un cuenta o inicia sesión
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="flex items-center justify-center">
+                            <div>
+                                <img src="{{ asset('img/vector/2.svg') }}" class="h-60 w-full object-contain"
+                                    loading="lazy">
+                                <div class="mt-3">
+                                    <h1 class="bg-white text-center text-2xl mx-9 p-2 font-bold font-josefin rounded-full">
+                                        Paso 2</h1>
+                                    <p class="text-xl text-white text-center font-bold mt-5">Activa el modo creador</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-center">
+                            <div>
+                                <img src="{{ asset('img/vector/3.svg') }}" class="h-60 w-full object-contain"
+                                    loading="lazy">
+                                <div class="mt-3">
+                                    <h1 class="bg-white p-2 mx-16 text-center text-2xl font-bold font-josefin rounded-full">
+                                        Paso 3</h1>
+                                    <p class="text-xl text-white text-center font-bold mt-5">Crea tu comic y subo tus
+                                        imagenes</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-center">
+                            <div>
+                                <img src="{{ asset('img/vector/4.svg') }}" class="h-60 w-full object-contain"
+                                    loading="lazy">
+                                <div class="mt-3">
+                                    <h1 class="bg-white text-center text-2xl p-2 font-bold font-josefin rounded-full">Paso 4
+                                    </h1>
+                                    <p class="text-xl text-white text-center font-bold mt-5">Publica tu comic con otros</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
         <div class="max-w-3xl mx-auto my-10">
             <hr class="border-2 border-dashed border-skcomic my-4">

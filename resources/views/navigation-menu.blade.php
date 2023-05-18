@@ -3,7 +3,7 @@
         <div class="flex lg:flex-1">
             <x-application-mark />
         </div>
-        <div class="flex lg:hidden">
+        <div class="flex md:hidden">
             <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
                 @click="open = true">
                 <span class="sr-only">Open main menu</span>
@@ -14,20 +14,20 @@
                 </svg>
             </button>
         </div>
-        <div class="hidden lg:flex lg:gap-x-12">
+        <div class="hidden md:flex md:gap-x-6 lg:gap-x-12">
 
             <a href="{{ route('home') }}"
                 class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Inicio</a>
             <a href="{{ route('comics.index') }}"
                 class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Comics</a>
-            <a href="{{route('search.users')}}"
+            <a href="{{ route('search.users') }}"
                 class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Creadores</a>
-            <a href="{{ route('plan')}}"
+            <a href="{{ route('plan') }}"
                 class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Planes</a>
             <a href=""
                 class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">FAQ</a>
         </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center space-x-2">
+        <div class="hidden md:flex lg:flex-1 lg:justify-end lg:items-center space-x-2">
             @auth
                 <div class="flex items-center justify-center space-x-3">
                     <div>
@@ -71,7 +71,7 @@
                                     </x-dropdown-link>
                                 @endcan
                                 @can('Ver Dashboard (administrador)')
-                                    <x-dropdown-link href="{{ route('admin.home')}}">
+                                    <x-dropdown-link href="{{ route('admin.home') }}">
                                         Panel de administrador
                                     </x-dropdown-link>
                                 @endcan
@@ -99,17 +99,13 @@
         </div>
     </nav>
     <!-- Menu mobile -->
-    <div class="sm:hidden" x-show="open" aria-modal="true" style="display: none;">
+    <div class="lg:hidden" x-show="open" aria-modal="true" >
         <div x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 z-10">
         </div>
         <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
             @click.away="open = false">
             <div class="flex items-center justify-between">
-                <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Your Company</span>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&amp;shade=600"
-                        alt="">
-                </a>
+                <x-application-mark />
                 <button type="button" class="-m-2.5 rounded-md p-2.5 text-white" @click="open = false">
                     <span class="sr-only">Close menu</span>
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -122,17 +118,30 @@
                 <div class="-my-6 divide-y divide-white">
                     <div class="space-y-2 py-6">
 
+                        <a href="{{ route('home') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Inicio</a>
+                        <a href="{{ route('comics.index') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Comics</a>
+                        <a href="{{ route('search.users') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
+                        <a href="{{ route('plan') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Planes</a>
                         <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Features</a>
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Marketplace</a>
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Company</a>
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
                     </div>
                     <div class="py-6">
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Log
-                            in</a>
+                        @auth
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+
+                                <x-dropdown-link class="text-white font-bold" href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                    Cerrar Sesión
+                                </x-dropdown-link>
+                            </form>
+                        @else
+                            @livewire('modals')
+                        @endauth
+
                     </div>
                 </div>
             </div>

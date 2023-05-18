@@ -51,7 +51,7 @@
     @stack('swiper')
     @stack('open')
     @stack('glider')
-
+    @stack('up')
 </body>
 
 </html>

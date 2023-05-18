@@ -27,13 +27,13 @@
                     {{ env('APP_URL') }}
                 </span>
                 <input type="text" id="website-admin" class="rounded-none rounded-r-lg w-full"
-                    value="{{ $slider->url }}">
+                    value="{{ $slider->route }}">
             </div>
             <div class="mb-4">
                 <button type="submit"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar Slider</button>
 
-                
+
             </div>
         </form>
     </div>

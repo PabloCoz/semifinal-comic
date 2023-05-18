@@ -32,18 +32,20 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'url' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'page' => 'required',
+            'route' => 'required'
         ]);
 
         $image = $request->file('image');
-        $url = Storage::put('public/sliders', $image);
+        $url = Storage::put('sliders', $image);
         Slider::create([
-            'url' => $request->url,
-            'image' => $url,
+            'page' => $request->page,
+            'url' => $url,
+            'route' => $request->route,
         ]);
 
-        redirect()->route('admin.sliders.index')->with('success', 'Slider created successfully.');
+        return redirect()->route('admin.sliders.index')->with('success', 'Slider created successfully.');
     }
 
     /**
@@ -68,29 +70,31 @@ class SliderController extends Controller
     public function update(Request $request, Slider $slider)
     {
         $request->validate([
-            'url' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'page' => 'required',
+            'route' => 'required'
         ]);
 
         $image = $request->file('image');
         if ($image) {
-            if($slider->url)
-            {
+            if ($slider->url) {
                 Storage::delete($slider->url);
             }
 
-            $url = Storage::put('public/sliders', $image);
+            $url = Storage::put('sliders', $image);
             $slider->update([
-                'url' => $request->url,
-                'image' => $url,
+                'page' => $request->page,
+                'url' => $url,
+                'route' => $request->route,
             ]);
         } else {
             $slider->update([
-                'url' => $request->url,
+                'page' => $request->page,
+                'route' => $request->route,
             ]);
         }
 
-        redirect()->route('admin.sliders.index')->with('success', 'Slider updated successfully.');
+        return redirect()->route('admin.sliders.index')->with('success', 'Slider updated successfully.');
     }
 
     /**
@@ -99,6 +103,6 @@ class SliderController extends Controller
     public function destroy(Slider $slider)
     {
         $slider->delete();
-        redirect()->route('admin.sliders.index')->with('success', 'Slider deleted successfully.');
+        return redirect()->route('admin.sliders.index')->with('success', 'Slider deleted successfully.');
     }
 }
