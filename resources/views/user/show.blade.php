@@ -22,7 +22,7 @@
                                     </button>
                                 @endif
                                 @if ($user->profile->is_original == 3 && $user->id == auth()->user()->id)
-                                    <form action="{{ route('users.original', $user) }}">
+                                    <form action="{{ route('users.original', $user) }}" method="POST">
                                         @csrf
                                         <button type="submit"
                                             class="p-3 bg-red-400 rounded-full font-bold w-full text-white">
