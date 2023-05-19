@@ -45,7 +45,7 @@
 
                         </div>
                         <div class="flex items-center justify-center mt-10 space-x-2">
-                            <form action="{{-- {{ route('comics.enrolled', $comic) }} --}}" method="POST">
+                            <form action="{{ route('admin.comics.approved', $comic) }}" method="POST">
                                 @csrf
                                 <button type="submit"
                                     class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin uppercase tracking-widest">
