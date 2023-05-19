@@ -1,4 +1,4 @@
-document.getElementById("name").addEventListener('keyup', slugChange);
+document.getElementById("title").addEventListener('keyup', slugChange);
 
 function slugChange() {
 

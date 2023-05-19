@@ -94,9 +94,10 @@
 
     @livewireScripts
     @stack('sortable')
-    @isset($js)
+    @stack('js')
+    {{-- @isset($js)
         {{ $js }}
-    @endisset
+    @endisset --}}
 
 
 </body>

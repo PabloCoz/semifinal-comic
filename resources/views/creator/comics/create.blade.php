@@ -18,7 +18,7 @@
         </div>
 
     </div>
-    <x-slot name="js">
+    
         <script src="{{ asset('js/form.js') }}"></script>
-    </x-slot>
+    
 </x-app-layout>
