@@ -68,7 +68,7 @@ class UserController extends Controller
     public function original(User $user)
     {
         $user->profile->update([
-            'is_original' => Profile::PROCESO
+            'is_original' => Profile::ORIGINAL
         ]);
 
         return redirect()->route('users.show', $user);
