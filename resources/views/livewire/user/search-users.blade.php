@@ -1,9 +1,9 @@
 <div class="bg-black">
     <x-slider-component :sliders="$sliders" />
-    <header class="w-full relative h-auto overflow-hidden">
+    <header class="w-full h-auto overflow-hidden bg-rose-600">
 
-        <div class="max-w-5xl mx-auto relative z-20 select-none">
-            <div class="py-40">
+        <div class="max-w-5xl mx-auto select-none">
+            <div class="py-40 ">
                 <h1 class="uppercase mb-6 text-5xl lg:text-6xl font-bold text-white text-center">¿Ya te sabes
                     el nombre de tu creador de comics preferido?</h1>
                 <div class="flex justify-center mx-2 md:mx-0">
@@ -39,10 +39,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-        <div>
-            <img class="absolute top-0 left-0 w-full h-full object-cover z-10 brightness-50"
-                src="{{ asset('img/banner.jpg') }}">
         </div>
     </header>
     <section class="p-2">

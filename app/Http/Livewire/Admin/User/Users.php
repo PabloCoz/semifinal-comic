@@ -36,4 +36,12 @@ class Users extends Component
         $user->update(['status' => 1]);
         $this->emitSelf('render');
     }
+
+    public function makeOriginal($user)
+    {
+        $user = User::find($user);
+        $user->profile->is_original = 1;
+        $user->profile->save();
+        $this->emitSelf('render');
+    }
 }

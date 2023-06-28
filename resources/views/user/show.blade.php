@@ -5,7 +5,7 @@
     <section class="bg-black">
         <div class="max-w-5xl mx-auto pb-2">
             <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-5">
-                <div class="col-span-1 md:col-span-2 -mt-12 relative z-20">
+                <div class="col-span-1 md:col-span-2 -mt-12 relative z-10">
                     <div class="flex justify-center">
                         <img class="h-52 w-52 rounded-full object-cover object-center"
                             src="{{ $user->profile_photo_url }}" alt="" loading="lazy">

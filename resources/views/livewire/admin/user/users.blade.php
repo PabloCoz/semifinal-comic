@@ -23,6 +23,11 @@
                         Creador
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Creador original
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                     </th>
                 </tr>
             </thead>
@@ -30,7 +35,8 @@
                 @forelse ($users as $user)
                     <tr class="bg-white border-b">
                         <th scope="row" class="px-6 py-4 font-medium ">
-                            <img src="{{ $user->profile_photo_url }}" class="h-14 w-14 rounded-full" alt="" loading="lazy">
+                            <img src="{{ $user->profile_photo_url }}" class="h-14 w-14 rounded-full" alt=""
+                                loading="lazy">
                         </th>
                         <td class="px-6 py-4">
                             <h1 class="font-bold text-gray-800">{{ $user->username }}</h1>
@@ -44,23 +50,42 @@
                         <td class="px-6 py-4">
                             {{ $user->is_creator ? 'Si' : 'No' }}
                         </td>
+                        <th scope="col" class="px-6 py-3">
+                            @if ($user->profile->is_original == 2)
+                                <button wire:click="makeOriginal({{ $user->id }})"
+                                    class="bg-rose-600 text-white font-bold px-3 py-2 rounded-lg">
+                                    Aceptar
+                                </button>
+                            @elseif($user->profile->is_original == 1)
+                                <div class="flex items-center justify-center">
+                                    <i class="fa-solid fa-star text-yellow-300 text-xl"></i>
+                                </div>
+                            @endif
+                        </th>
                         <td class="px-6 py-4">
                             @if ($user->status == 1)
                                 <button wire:click="blockUser({{ $user }})"
                                     class="bg-red-600 text-white font-bold px-3 py-2 rounded-lg">
-                                    Bloquear usuario
+                                    Bloquear
                                 </button>
                             @else
                                 <button wire:click="unblockUser({{ $user }})"
                                     class="bg-green-600 text-white font-bold px-3 py-2 rounded-lg">
-                                    Desbloquear usuario
+                                    Desbloquear
                                 </button>
                             @endif
                         </td>
+                        <th scope="col" class="px-6 py-3">
+                            <a href="{{ route('admin.users.edit', $user) }}"
+                                class="bg-blue-600 text-white font-bold px-3 py-2 rounded-lg">
+                                Editar
+                            </a>
+                        </th>
+
                     </tr>
                 @empty
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4 text-center" colspan="4">
+                        <td class="px-6 py-4 text-center" colspan="5">
                             No hay resultados para la busqueda.
                         </td>
                     </tr>

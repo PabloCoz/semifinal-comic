@@ -9,7 +9,8 @@
             @foreach ($sliders as $slider)
                 <div class="swiper-slide">
                     <figure>
-                        <img class="object-cover object-center h-[450px] w-full" src="{{ Storage::url($slider->url) }}" lazy="loading" alt="{{ $slider->name }}">
+                        <img class="object-center h-[350px] md:h-[450px] lg:h-[550px] w-full object-cover"
+                        src="{{ Storage::url($slider->url) }}" lazy="loading" alt="{{ $slider->name }}">
                     </figure>
                 </div>
             @endforeach

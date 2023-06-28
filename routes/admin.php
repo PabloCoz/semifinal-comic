@@ -19,7 +19,7 @@ Route::resource('roles', RoleController::class)->names('admin.roles');
 
 Route::resource('sliders', SliderController::class)->names('admin.sliders');
 
-Route::get('users', [UserController::class, 'index'])->name('admin.users.index');
+Route::resource('users', UserController::class)->only('index', 'edit', 'update')->names('admin.users');
 
 Route::group(['prefix' => 'comics'], function () {
     Route::get('/', [ComicController::class, 'index'])->name('admin.comics.index');

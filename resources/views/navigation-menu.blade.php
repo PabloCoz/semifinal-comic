@@ -99,10 +99,10 @@
         </div>
     </nav>
     <!-- Menu mobile -->
-    <div class="lg:hidden" x-show="open" aria-modal="true" >
-        <div x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 z-10">
+    <div class="lg:hidden" x-show="open" aria-modal="true">
+        <div x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 z-50">
         </div>
-        <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+        <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
             @click.away="open = false">
             <div class="flex items-center justify-between">
                 <x-application-mark />
@@ -131,10 +131,20 @@
                     </div>
                     <div class="py-6">
                         @auth
+                            <div>
+                                <a href="{{ route('profile.show') }}"
+                                    class="text-white font-bold flex items-center justify-start">
+                                    <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"
+                                        class="h-8 w-8 rounded-full object-cover">
+                                    <h1 class="ml-2">{{ Auth::user()->username }}</h1>
+                                </a>
+                            </div>
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
-                                <x-dropdown-link class="text-white font-bold" href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                <x-dropdown-link
+                                    class="-mx-3 block w-full bg-white mt-4 rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-300"
+                                    href="{{ route('logout') }}" @click.prevent="$root.submit();">
                                     Cerrar Sesión
                                 </x-dropdown-link>
                             </form>
