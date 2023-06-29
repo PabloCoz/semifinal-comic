@@ -11,7 +11,8 @@
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="{{route('admin.home')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                <a href="{{ route('admin.home') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
                     <i class="fa-solid fa-chart-pie"></i>
                     <span class="ml-3">Dashboard</span>
                 </a>
@@ -57,6 +58,13 @@
                     class="flex w-full items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
                     <i class="fa-solid fa-table-list"></i>
                     <span class="flex-1 ml-3">Planes de suscripcion</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.questions.index') }}"
+                    class="flex w-full items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    <i class="fa-solid fa-question"></i>
+                    <span class="flex-1 ml-3">FAQ</span>
                 </a>
             </li>
             <li>

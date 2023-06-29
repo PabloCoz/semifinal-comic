@@ -4,8 +4,10 @@ use App\Http\Controllers\ComicController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Comics\ComicStatus;
+use App\Http\Livewire\User\ComicUser;
 use App\Http\Livewire\User\SearchUsers;
 use App\Http\Livewire\User\UserUpdate;
 use Illuminate\Support\Facades\Route;
@@ -44,3 +46,9 @@ Route::get('users/{user}', [UserController::class, 'show'])->middleware('auth')-
 Route::get('/comics/{comic}/{chapter}', ComicStatus::class)->middleware('auth')->name('comics.status');
 
 Route::post('users/{user}/original', [UserController::class, 'original'])->middleware('auth')->name('users.original');
+
+Route::get('/my-comics', ComicUser::class)->middleware('auth')->name('comics.user');
+
+Route::get('faq', [QuestionController::class, 'index'])->name('faq.index');
+
+Route::post('faq', [QuestionController::class, 'store'])->name('faq.store');

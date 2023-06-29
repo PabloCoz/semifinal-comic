@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ComicController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
@@ -26,3 +27,5 @@ Route::group(['prefix' => 'comics'], function () {
     Route::get('/{comic}', [ComicController::class, 'show'])->name('admin.comics.show');
     Route::post('/{comic}/approved', [ComicController::class, 'approved'])->name('admin.comics.approved');
 });
+
+Route::resource('questions', QuestionController::class)->names('admin.questions');
