@@ -20,7 +20,7 @@ class ChapterPolicy
     public function liked(User $user, Chapter $chapter)
     {
         foreach ($chapter->likes as $like) {
-            if ($like->user_id == auth()->user()->id) {
+            if ($like->user_id == $user->id) {
                 return true;
             }
         }

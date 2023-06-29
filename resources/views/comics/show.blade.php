@@ -32,7 +32,8 @@
                                     <i class="fa-regular fa-star"></i>
                                 </button>
 
-                                <h1 class="ml-1 text-white font-bold font-josefin">{{ $comic->ratings->avg('value') }}
+                                <h1 class="ml-1 text-white font-bold font-josefin">
+                                    {{ round($comic->ratings->avg('value'), 2) }}
                                 </h1>
                             </section>
                             <section class="flex items-center">
@@ -44,15 +45,29 @@
                             </section>
 
                         </div>
+                        <div class="flex justify-center mt-4">
+                            <div>
+                                @can('enrolled', $comic)
+                                    @livewire('comics.comic-rating', ['comic' => $comic])
+                                @endcan
+                            </div>
+                        </div>
                         <div class="flex items-center justify-center mt-10">
                             @auth
-                                <form action="{{ route('comics.enrolled', $comic) }}" method="POST">
-                                    @csrf
-                                    <button type="submit"
-                                        class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin uppercase tracking-widest">
-                                        Suscribirse
-                                    </button>
-                                </form>
+                                @can('enrolled', $comic)
+                                    <a href="{{ route('comics.status', ['comic' => $comic, 'chapter' => $comic->chapters->first()]) }}"
+                                        class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin">
+                                        Leer Ahora!
+                                    </a>
+                                @else
+                                    <form action="{{ route('comics.enrolled', $comic) }}" method="POST">
+                                        @csrf
+                                        <button type="submit"
+                                            class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin uppercase tracking-widest">
+                                            Suscribirse
+                                        </button>
+                                    </form>
+                                @endcan
                             @else
                                 <button onclick="openModal()"
                                     class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin uppercase tracking-widest">
@@ -68,7 +83,7 @@
     </div>
 
     <div class="">
-        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto px-2 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-8 gap-3">
                 <div class="col-span-6 order-2 md:order-1">
                     <div class="">

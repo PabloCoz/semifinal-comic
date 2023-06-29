@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Comic;
+use App\Models\Rating;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -46,5 +47,13 @@ class ComicPolicy
         } else {
             return false;
         }
+    }
+
+    public function valued(User $user, Comic $comic)
+    {
+        if(Rating::where('user_id', auth()->user()->id)->where('comic_id', $comic->id)->count())
+            return false;
+        else
+            return true;
     }
 }
