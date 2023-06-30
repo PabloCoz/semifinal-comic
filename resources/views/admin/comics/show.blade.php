@@ -14,7 +14,7 @@
                             <h1 class="text-3xl font-extrabold font-josefin text-white uppercase text-center">
                                 {{ $comic->title }}</h1>
                             <p class="md:text-xl font-bold font-josefin text-white mt-3 mx-3 text-center">
-                                Creado por: <a href="{{-- {{ route('users.show', $comic->user) }} --}}"
+                                Creado por: <a href="{{ route('users.show', $comic->user) }}"
                                     class="uppercase hover:underline">{{ $comic->user->username }}</a>
                             </p>
                         </div>

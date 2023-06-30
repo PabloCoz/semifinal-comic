@@ -16,6 +16,11 @@
                                 class="p-1 hover:bg-rose-500 rounded-lg hover:text-white">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                             </a>
+                        @elsecan('Revisar Comic (administrador)')
+                            <a href="{{ route('comics.status', ['comic' => $comic, 'chapter' => $chapter]) }}"
+                                class="p-1 hover:bg-rose-500 rounded-lg hover:text-white">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </a>
                         @endcan
                     </div>
                 </div>
