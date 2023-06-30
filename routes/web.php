@@ -35,7 +35,7 @@ Route::prefix('comics')->group(function () {
 
 Route::get('/register-creator', UserUpdate::class)->middleware('auth')->name('register-creator');
 
-Route::get('/plan', PlanController::class)->name('plan');
+/* Route::get('/plan', PlanController::class)->name('plan'); */
 
 Route::get('/payment-plan/{plan}', [PaymentController::class, 'index'])->middleware('auth')->name('payment.index');
 

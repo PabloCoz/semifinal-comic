@@ -22,8 +22,8 @@
                 class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Comics</a>
             <a href="{{ route('search.users') }}"
                 class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Creadores</a>
-            <a href="{{ route('plan') }}"
-                class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Planes</a>
+            {{-- <a href="{{ route('plan') }}"
+                class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Planes</a> --}}
             <a href="{{ route('faq.index') }}"
                 class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">FAQ</a>
         </div>
@@ -125,8 +125,8 @@
                             class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Comics</a>
                         <a href="{{ route('search.users') }}"
                             class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
-                        <a href="{{ route('plan') }}"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Planes</a>
+                        {{-- <a href="{{ route('plan') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Planes</a> --}}
                         <a href="{{ route('faq.index') }}"
                             class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
                     </div>
