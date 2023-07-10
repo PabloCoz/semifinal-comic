@@ -3,7 +3,7 @@
 
     <section class="bg-black pt-10">
         <div class="max-w-xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 pb-10">
                 <div>
                     <img src="{{ asset('img/vector.png') }}" class="h-56 w-full object-contain">
                 </div>
@@ -22,9 +22,10 @@
             </div>
         </div>
 
-        <section class="bg-black py-10">
-            <div class="max-w-3xl mx-auto">
-                <hr class="border-2 border-dashed border-skcomic my-4">
+        <section class="py-10 bg-fixed bg-center bg-no-repeat bg-cover relative"
+            style="background-image: url({{ asset('img/images/portada.png') }})">
+            <div class="max-w-3xl mx-auto relative z-40">
+                <hr class="border-2 border-dashed border-white mb-4">
                 <h1 class="font-josefin font-bold text-3xl text-white text-center">Empieza con 4 simples pasos</h1>
                 <div
                     class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-3 mt-6 divide-y-4 space-y-4 md:space-y-0 md:divide-y-0 divide-white">
@@ -34,9 +35,11 @@
                                 <img src="{{ asset('img/vector/1.svg') }}" class="h-60 w-full object-contain"
                                     loading="lazy">
                                 <div class="mt-3">
-                                    <h1 class="bg-white p-2 mx-16 text-center text-2xl font-bold font-josefin rounded-full">
+                                    <h1
+                                        class="bg-white p-2 mx-16 text-center text-2xl font-bold font-josefin rounded-full">
                                         Paso 1</h1>
-                                    <p class="text-xl text-white text-center font-bold mt-5">Crea un cuenta o inicia sesión
+                                    <p class="text-xl text-white text-center font-bold mt-5">Crea un cuenta o inicia
+                                        sesión
                                     </p>
                                 </div>
                             </div>
@@ -49,7 +52,8 @@
                                 <img src="{{ asset('img/vector/2.svg') }}" class="h-60 w-full object-contain"
                                     loading="lazy">
                                 <div class="mt-3">
-                                    <h1 class="bg-white text-center text-2xl mx-9 p-2 font-bold font-josefin rounded-full">
+                                    <h1
+                                        class="bg-white text-center text-2xl mx-9 p-2 font-bold font-josefin rounded-full">
                                         Paso 2</h1>
                                     <p class="text-xl text-white text-center font-bold mt-5">Activa el modo creador</p>
                                 </div>
@@ -62,7 +66,8 @@
                                 <img src="{{ asset('img/vector/3.svg') }}" class="h-60 w-full object-contain"
                                     loading="lazy">
                                 <div class="mt-3">
-                                    <h1 class="bg-white p-2 mx-16 text-center text-2xl font-bold font-josefin rounded-full">
+                                    <h1
+                                        class="bg-white p-2 mx-16 text-center text-2xl font-bold font-josefin rounded-full">
                                         Paso 3</h1>
                                     <p class="text-xl text-white text-center font-bold mt-5">Crea tu comic y subo tus
                                         imagenes</p>
@@ -77,9 +82,11 @@
                                 <img src="{{ asset('img/vector/4.svg') }}" class="h-60 w-full object-contain"
                                     loading="lazy">
                                 <div class="mt-3">
-                                    <h1 class="bg-white text-center text-2xl p-2 font-bold font-josefin rounded-full">Paso 4
+                                    <h1 class="bg-white text-center text-2xl p-2 font-bold font-josefin rounded-full">
+                                        Paso 4
                                     </h1>
-                                    <p class="text-xl text-white text-center font-bold mt-5">Publica tu comic con otros</p>
+                                    <p class="text-xl text-white text-center font-bold mt-5">Publica tu comic con otros
+                                    </p>
                                 </div>
                             </div>
 
@@ -88,15 +95,18 @@
 
                 </div>
             </div>
+            <div class="absolute bg-gradient-to-r from-skcomic to-rosecomic opacity-90 z-30 top-0 left-0 w-full h-full">
+            </div>
         </section>
 
         <div class="max-w-3xl mx-auto my-10">
             <hr class="border-2 border-dashed border-skcomic my-4">
             <div class="max-w-5xl mx-auto">
-                <h1 class="font-josefin text-center text-xl text-white">
+                <h1 class="font-josefin text-center text-lg text-white">
                     NUESTROS COMICS YA PUBLICADOS
                 </h1>
-                <p class="text-skcomic text-center font-josefin font-bold uppercase text-4xl mt-4">MILES DE CREADORES YA
+                <p class="text-skcomic text-center font-josefin font-bold uppercase text-xl truncate mt-4">MILES DE
+                    CREADORES YA
                     SE ESTAN SUMANDO ¿QUE ESPERAS?</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
@@ -104,9 +114,10 @@
                     <x-card-comic :comic="$comic" />
                 @endforeach
             </div>
-            <div>
+            <div class="flex items-center justify-center">
                 <a href="{{ route('comics.index') }}"
-                    class="block w-full bg-rose-600 py-2 text-center text-white font-josefin font-bold text-xl rounded-lg mt-4">Ver más comics...
+                    class="w-52 bg-skcomic hover:bg-sky-500 py-2 text-center text-white font-josefin font-bold text-xl rounded-full uppercase mt-4">Ver
+                    más
                 </a>
             </div>
         </div>

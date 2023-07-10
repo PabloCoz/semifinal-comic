@@ -1,6 +1,6 @@
 @props(['comic'])
 <div class="mx-1 md:mx-0">
-    <a href="{{route('comics.show', $comic)}}">
+    <a href="{{ route('comics.show', $comic) }}">
         <div class="flex justify-center items-center relative">
             <figure class="md:rounded-md shadow-md overflow-hidden">
                 <img class="h-72 object-center object-cover w-full" src="{{ Storage::url($comic->image->url) }}"
@@ -22,9 +22,9 @@
         </div>
 
         <div>
-            <h1 class="font-josefin text-white text-center text-xl font-bold">
+            <h1 class="font-josefin text-skcomic uppercase text-center font-bold">
                 {{ Str::limit($comic->title, 36, '...') }}</h1>
-
+            <p class="text-sm text-white text-justify font-semibold">{{ Str::limit($comic->description, 50, '...') }}</p>
         </div>
     </a>
 </div>

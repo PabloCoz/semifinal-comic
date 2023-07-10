@@ -17,15 +17,15 @@
         <div class="hidden md:flex md:gap-x-6 lg:gap-x-12">
 
             <a href="{{ route('home') }}"
-                class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Inicio</a>
+                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Inicio</a>
             <a href="{{ route('comics.index') }}"
-                class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Comics</a>
+                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Comics</a>
             <a href="{{ route('search.users') }}"
-                class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Creadores</a>
+                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Creadores</a>
             {{-- <a href="{{ route('plan') }}"
-                class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Planes</a> --}}
+                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Planes</a> --}}
             <a href="{{ route('faq.index') }}"
-                class="font-semibold leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">FAQ</a>
+                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">FAQ</a>
         </div>
         <div class="hidden md:flex lg:flex-1 lg:justify-end lg:items-center space-x-2">
             @auth
@@ -120,15 +120,15 @@
                     <div class="space-y-2 py-6">
 
                         <a href="{{ route('home') }}"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Inicio</a>
+                            class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Inicio</a>
                         <a href="{{ route('comics.index') }}"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Comics</a>
+                            class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Comics</a>
                         <a href="{{ route('search.users') }}"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
+                            class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
                         {{-- <a href="{{ route('plan') }}"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Planes</a> --}}
+                            class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Planes</a> --}}
                         <a href="{{ route('faq.index') }}"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
+                            class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
                     </div>
                     <div class="py-6">
                         @auth

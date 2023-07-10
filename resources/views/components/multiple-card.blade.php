@@ -25,8 +25,9 @@
                     </div>
 
                     <div>
-                        <h1 class="font-josefin text-white text-center text-xl font-bold">
-                            {{ Str::limit($item->title, 36, '...') }}</h1>
+                        <h1 class="font-josefin text-skcomic text-center font-bold uppercase">
+                            {{ $item->title }}</h1>
+                        <p class="text-white font-semibold text-sm">{{ Str::limit($item->description, 36, '...') }}</p>
                     </div>
                 </a>
             @empty
