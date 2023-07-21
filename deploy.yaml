@@ -1,0 +1,35 @@
+import: 
+  - recipe/laravel.php
+  - contrib/npm.php
+
+config:
+  repository: 'https://github.com/PabloCoz/semifinal-comic.git'
+
+hosts:
+  baps:
+    remote_user: root
+    hostname: bapscomics.com
+    deploy_path: '/var/www/{{hostname}}'
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:vendors
+    - artisan:storage:link
+    - artisan:config:cache
+    - artisan:route:cache
+    - artisan:view:cache
+    - artisan:event:cache
+    - artisan:migrate:fresh
+    - artisan:migrate
+    - artisan:db:seed
+    - npm:install
+    - build
+    - deploy:publish
+
+  build:
+    - cd: "{{release_path}}"
+    - run: "npm run build"
+
+after:
+  deploy:failed: deploy:unlock
