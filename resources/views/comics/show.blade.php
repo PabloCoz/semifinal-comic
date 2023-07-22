@@ -64,14 +64,14 @@
                                         @csrf
                                         <button type="submit"
                                             class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin uppercase tracking-widest">
-                                            Suscribirse
+                                            Seguir
                                         </button>
                                     </form>
                                 @endcan
                             @else
                                 <button onclick="openModal()"
                                     class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin uppercase tracking-widest">
-                                    Suscribirse
+                                    Seguir
                                 </button>
                             @endauth
                         </div>

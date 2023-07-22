@@ -18,7 +18,7 @@
         </div>
 
     </div>
-    
+    @push('js')
         <script src="{{ asset('js/form.js') }}"></script>
-    
+    @endpush
 </x-app-layout>

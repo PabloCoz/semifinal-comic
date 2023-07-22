@@ -66,28 +66,26 @@
         </div>
     </section>
     <section class="max-w-4xl mx-auto">
-        <div class="my-10 border-t border-dashed border-white p-2">
+        <div class="my-10 border-t-4 border-dashed border-gray-500 p-2">
             <div class="mt-7">
                 <h1 class="font-bold font-josefin text-3xl text-sky-400 text-center">CREADORES</h1>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 divide-y-2 md:divide-y-0 divide-gray-200">
-                @foreach ($this->users as $user)
-                    <div class="py-2">
-                        <div class="flex justify-center items-center">
-                            <img class="h-40 w-40 rounded-full object-cover object-center"
-                                src="{{ $user->profile_photo_url }}" alt="" loading="lazy">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 divide-y-2 md:divide-y-0 divide-gray-200 mt-4">
+                @foreach ($this->users as $profile)
+                    <a href="{{ route('users.show', $profile->user) }}"
+                        class="hover:bg-white rounded-md text-white hover:text-black p-2  transition duration-500 ease-in-out">
+                        <div class="py-2">
+                            <div class="flex justify-center items-center">
+                                <img class="h-52 w-52 rounded-full object-cover object-center"
+                                    src="{{ $profile->user->profile_photo_url }}" alt="" loading="lazy">
+                            </div>
+                            <div class=" mt-5">
+                                <h1 class="text-center font-bold text-2xl uppercase font-josefin">
+                                    {{ $profile->user->username }}</h1>
+                                <p class="text-justify">{{ Str::limit($profile->bio, 100, '...') }}</p>
+                            </div>
                         </div>
-                        <div class="text-white mt-5">
-                            <h1 class="text-center font-bold text-2xl uppercase font-josefin text-rose-400">
-                                {{ $user->username }}</h1>
-                            <p class="text-justify">{{ Str::limit($user->bio, 100, '...') }}</p>
-                        </div>
-                        <div class="mt-5 flex justify-center items-center">
-                            <a href="{{ route('users.show', $user->user) }}"
-                                class="bg-rose-400 text-white px-4 py-2 rounded-full font-bold uppercase font-josefin">Ver
-                                Perfil</a>
-                        </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>

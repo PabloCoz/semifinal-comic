@@ -1,10 +1,10 @@
 <x-app-layout>
-    <div>
-        <figure>
-            <img src="{{ asset('img/images/portada2.png') }}" class="w-full object-cover" loading="lazy">
-        </figure>
-    </div>
-    <x-slider-component :sliders="$sliders" />
+    <section class="py-10 bg-fixed bg-center bg-no-repeat bg-cover relative"
+        style="background-image: url({{ asset('img/images/portada2.png') }})">
+        <div class="max-w-7xl mx-auto relative z-40">
+            <x-slider-component :sliders="$sliders" />
+        </div>
+    </section>
 
     @livewire('comics.comic-index')
 

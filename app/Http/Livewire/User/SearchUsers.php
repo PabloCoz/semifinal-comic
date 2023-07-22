@@ -26,6 +26,9 @@ class SearchUsers extends Component
         return Profile::where('is_original', Profile::ORIGINAL)
             ->where('name', 'like', '%' . $this->search . '%')
             ->orWhere('lastname', 'like', '%' . $this->search . '%')
+            ->orWhereHas('user', function ($query) {
+                $query->where('username', 'like', '%' . $this->search . '%');
+            })
             ->get() ?? [];
     }
 

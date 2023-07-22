@@ -1,7 +1,7 @@
 <div>
     <button wire:click="$set('open', true)"
-        class="px-4 py-3 bg-rose-600 rounded-full text-white uppercase text-xs font-bold tracking-wider">
-        Iniciar Sesión
+        class="px-4 py-3 bg-rose-600 rounded-full uppercase text-xs font-bold tracking-wider">
+        REGISTRARSE
     </button>
 
     <x-dialog-modal wire:model="open" :maxWidth="'lg'">
@@ -35,4 +35,3 @@
         </x-slot>
     </x-dialog-modal>
 </div>
-

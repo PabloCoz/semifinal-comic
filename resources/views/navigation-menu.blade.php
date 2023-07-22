@@ -17,15 +17,39 @@
         <div class="hidden md:flex md:gap-x-6 lg:gap-x-12">
 
             <a href="{{ route('home') }}"
-                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Inicio</a>
+                class="font-semibold uppercase leading-6 text-white border-b-4 
+                @routeIs('home') 
+                    border-rose-600
+                @else
+                    border-transparent hover:border-rose-600 
+                @endif 
+                    hover:transition hover:duration-500 hover:ease-in-out">Inicio</a>
             <a href="{{ route('comics.index') }}"
-                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Comics</a>
+            class="font-semibold uppercase leading-6 text-white border-b-4 
+                @routeIs('comics.index') 
+                    border-rose-600
+                @else
+                    border-transparent hover:border-rose-600 
+                @endif 
+                    hover:transition hover:duration-500 hover:ease-in-out">Comics</a>
             <a href="{{ route('search.users') }}"
-                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Creadores</a>
+                class="font-semibold uppercase leading-6 text-white border-b-4 
+                @routeIs('search.users') 
+                    border-rose-600
+                @else
+                    border-transparent hover:border-rose-600 
+                @endif 
+                    hover:transition hover:duration-500 hover:ease-in-out">Creadores</a>
             {{-- <a href="{{ route('plan') }}"
                 class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Planes</a> --}}
             <a href="{{ route('faq.index') }}"
-                class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">FAQ</a>
+                class="font-semibold uppercase leading-6 text-white border-b-4 
+                @routeIs('faq.index') 
+                    border-rose-600
+                @else
+                    border-transparent hover:border-rose-600 
+                @endif 
+                    hover:transition hover:duration-500 hover:ease-in-out">FAQ</a>
         </div>
         <div class="hidden md:flex lg:flex-1 lg:justify-end lg:items-center space-x-2">
             @auth
@@ -33,8 +57,8 @@
                     <div>
                         @if (auth()->user()->is_creator == false)
                             <a href="{{ route('register-creator') }}"
-                                class="text-white uppercase text-sm bg-green-700 font-bold py-3 px-4 rounded-full">
-                                PUBLICAR</a>
+                                class="text-black uppercase text-sm bg-white font-bold py-3 px-4 rounded-full">
+                                PUBLICAR YA!</a>
                         @endif
                     </div>
                     <div class="flex items-center">

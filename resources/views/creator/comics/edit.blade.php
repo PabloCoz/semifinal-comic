@@ -11,7 +11,7 @@
         {!! Form::close() !!}
     </div>
 
-    <x-slot name="js">
+    @push('js')
         <script src="{{ asset('js/form.js') }}"></script>
-    </x-slot>
+    @endpush
 </x-creator-layout>

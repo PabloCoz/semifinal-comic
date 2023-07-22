@@ -1,7 +1,7 @@
-<div>
+<div class="bg-black">
     <div class="max-w-5xl mx-auto py-5">
         <div class="my-5">
-            <h1 class="text-3xl font-bold font-josefin uppercase">Mis comics</h1>
+            <h1 class="text-3xl font-bold font-josefin uppercase text-rose-500">Mis comics</h1>
         </div>
         <div class="mb-5">
             <a href="{{ route('creator.comics.create') }}"

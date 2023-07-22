@@ -9,13 +9,19 @@
     @enderror
 </div>
 
-<div class="mb-4">
-    {!! Form::label('slug', 'Slug del comic') !!}
-    {!! Form::text('slug', null, ['class' => 'rounded-full w-full mt-1', 'readonly']) !!}
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+    <div class="">
+        {!! Form::label('slug', 'Slug del comic') !!}
+        {!! Form::text('slug', null, ['class' => 'rounded-full w-full mt-1', 'readonly']) !!}
 
-    @error('slug')
-        <strong class="text-xs text-red-500">{{ $message }}</strong>
-    @enderror
+        @error('slug')
+            <strong class="text-xs text-red-500">{{ $message }}</strong>
+        @enderror
+    </div>
+    <div>
+        {!! Form::label('category_id', 'Categoria') !!}
+        {!! Form::select('category_id', $categories, null, ['class' => 'rounded-full w-full mt-1']) !!}
+    </div>
 </div>
 
 
@@ -30,12 +36,7 @@
     @enderror
 </div>
 
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-    <div>
-        {!! Form::label('category_id', 'Categoria') !!}
-        {!! Form::select('category_id', $categories, null, ['class' => 'rounded-full w-full mt-1']) !!}
-    </div>
-</div>
+
 
 <h1 class="text-2xl font-bold mt-8 mb-2">Portada principal</h1>
 

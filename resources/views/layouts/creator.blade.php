@@ -32,7 +32,7 @@
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-6 py-4">
             <aside class="mx-3 md:mx-0">
                 <a href="{{ route('creator.comics.index') }}"
-                    class="my-8 bg-indigo-500 text-white font-bold p-2 rounded-full uppercase text-sm tracking-wider">menu
+                    class="my-8 bg-rose-500 text-white font-bold p-2 rounded-full uppercase text-sm tracking-wider">menu
                     principal</a>
                 <h1 class="font-bold text-lg my-4">EDITOR</h1>
 
