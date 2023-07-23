@@ -20,7 +20,6 @@ tasks:
     - artisan:route:cache
     - artisan:view:cache
     - artisan:event:cache
-    - artisan:migrate:fresh
     - artisan:migrate
     - npm:install
     - build
