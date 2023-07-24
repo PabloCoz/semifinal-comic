@@ -27,7 +27,7 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-black">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->
@@ -51,6 +51,7 @@
     @stack('swiper')
     @stack('open')
     @stack('glider')
+    @stack('js')
     @stack('up')
 </body>
 

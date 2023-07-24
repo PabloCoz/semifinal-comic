@@ -18,10 +18,19 @@
                 <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
                 <div class="mt-1">
                     <input type="text" name="slug" id="slug" value="{{ old('slug', $category->slug) }}"
-                        disabled
+                        readonly
                         class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
                 @error('slug')
+                    <span class="text-xs text-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="mt-4">
+                <label for="color" class="block text-sm font-medium text-gray-700">Color</label>
+                <div class="mt-1">
+                    <input type="color" name="color" id="color" value="{{ old('color', $category->color) }}">
+                </div>
+                @error('color')
                     <span class="text-xs text-red-500">{{ $message }}</span>
                 @enderror
             </div>

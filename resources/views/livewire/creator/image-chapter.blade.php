@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-4xl mx-auto py-8">
+    <div class="max-w-4xl mx-auto p-8 bg-white rounded-lg overflow-hidden">
         <h1 class="font-bold text-2xl uppercase">{{ $chapter->name }}</h1>
         <hr class="mt-2 mb-6">
 
@@ -16,7 +16,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <h1 class="mx-1 font-bold">Subir imagenes</h1>
+                        <h1 class="mx-1 font-bold">Subir imagen de portada</h1>
                     </label>
 
                     <input wire:model="image" id="{{ $ide }}" type="file" class="hidden" accept="image/*" />

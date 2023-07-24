@@ -3,14 +3,15 @@
     <div class="glider-contain">
         <div class="glider">
             @forelse ($comics as $item)
-                <a href="{{ route('comics.show', $item) }}" class="p-2 mx-3">
+                <a href="{{ route('comics.show', $item) }}" class="p-2">
                     <div class="flex justify-center items-center relative">
                         <figure class="md:rounded-md shadow-md overflow-hidden w-full">
                             <img class="h-72 object-center object-cover w-full"
                                 src="{{ Storage::url($item->image->url) }}" alt="" loading="lazy">
                         </figure>
-                        <div class="absolute top-1 left-2 bg-yellow-500 px-1 py-0.5 rounded-lg">
-                            <h1 class="font-josefin font-bold">{{ $item->category->name }}
+                        <div class="absolute top-1 left-2 px-1 py-0.5 rounded-lg"
+                            style="background: {{ $item->category->color }}">
+                            <h1 class="font-josefin font-bold truncate">{{ $item->category->name }}
                             </h1>
 
                         </div>
@@ -27,7 +28,8 @@
                     <div>
                         <h1 class="font-josefin text-skcomic text-center font-bold uppercase">
                             {{ $item->title }}</h1>
-                        <p class="text-white font-semibold text-sm">{{ Str::limit($item->description, 36, '...') }}</p>
+                        <p class="text-white font-semibold truncate text-sm">
+                            {{ Str::limit($item->description, 80, '...') }}</p>
                     </div>
                 </a>
             @empty

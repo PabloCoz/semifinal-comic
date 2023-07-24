@@ -35,7 +35,7 @@
                 @forelse ($users as $user)
                     <tr class="bg-white border-b">
                         <th scope="row" class="px-6 py-4 font-medium ">
-                            <img src="{{ $user->profile_photo_url }}" class="h-14 w-14 rounded-full" alt=""
+                            <img src="{{ $user->profile_photo_url }}" class="h-14 w-14 object-cover object-center rounded-full" alt=""
                                 loading="lazy">
                         </th>
                         <td class="px-6 py-4">

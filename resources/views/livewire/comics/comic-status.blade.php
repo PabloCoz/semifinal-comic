@@ -1,21 +1,19 @@
 <div>
-    <span id="arriba" class="hidden px-5 py-2 bg-black rounded-lg fixed bottom-5 right-5 cursor-pointer">
+    <span id="arriba" class="hidden px-5 py-2 bg-white rounded-lg fixed bottom-5 right-5 cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6 text-white font-bold">
+            class="w-6 h-6 text-black font-bold">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
         </svg>
-        u
     </span>
 
-    <div class="max-w-4xl mx-auto">
-        <h1 class="font-luckiest text-2xl text-center mt-3">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="font-josefin text-2xl text-center mt-3 text-white font-bold uppercase">
             {{ $chapter->name }}
         </h1>
-        <div class="mt-3 bg-white w-full pb-2">
+        <div class="mt-3 w-full pb-2 object-center">
             @foreach ($chapter->images as $images)
-                <img src="{{ Storage::url($images->url) }}" alt="">
+                <img class="object-center" src="{{ Storage::url($images->url) }}" loading="lazy">
             @endforeach
-
         </div>
     </div>
     @push('up')

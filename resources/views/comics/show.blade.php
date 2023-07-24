@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="">
+    <div class="bg-gray-50">
         <div class="max-w-5xl mx-auto px-2 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-8 gap-3">
                 <div class="col-span-6 order-2 md:order-1">

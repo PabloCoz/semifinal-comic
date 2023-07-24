@@ -24,6 +24,16 @@
                 @enderror
             </div>
             <div class="mt-4">
+                <label for="color" class="block text-sm font-medium text-gray-700">Color</label>
+                <div class="mt-1">
+                    <input type="color" name="color" id="color" value="{{ old('color') }}"
+                        class="">
+                </div>
+                @error('color')
+                    <span class="text-xs text-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="mt-4">
                 <button type="submit" class="bg-red-600 text-white rounded-md px-3 py-2 font-bold">Guardar</button>
             </div>
         </form>

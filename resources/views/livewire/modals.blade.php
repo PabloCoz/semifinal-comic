@@ -1,6 +1,6 @@
 <div>
     <button wire:click="$set('open', true)"
-        class="px-4 py-3 bg-rose-600 rounded-full uppercase text-xs font-bold tracking-wider">
+        class="px-4 py-3 bg-gradient-to-r from-skcomic to-rosecomic rounded-full uppercase text-sm italic font-bold tracking-wider">
         REGISTRARSE
     </button>
 

@@ -18,12 +18,12 @@ class UserUpdate extends Component
         'profile.lastname' => 'required',
         'profile.email' => 'required|email',
         'profile.phone' => 'required',
-        'profile.address' => 'required',
-        'profile.country' => 'required',
-        'profile.city' => 'required',
+        //'profile.address' => 'required',
+        //'profile.country' => 'required',
+        //'profile.city' => 'required',
         'profile.bio' => 'required',
-        'profile.facebook' => 'required',
-        'profile.instagram' => 'required',
+        //'profile.facebook' => 'required',
+        //'profile.instagram' => 'required',
     ];
 
     public function mount()
@@ -58,12 +58,12 @@ class UserUpdate extends Component
                     'lastname' => $this->profile['lastname'],
                     'email' => $this->profile['email'],
                     'phone' => $this->profile['phone'],
-                    'address' => $this->profile['address'],
-                    'country' => $this->profile['country'],
-                    'city' => $this->profile['city'],
+                    'address' => $this->profile['address'] ?? null,
+                    'country' => $this->profile['country'] ?? null,
+                    'city' => $this->profile['city'] ?? null,
                     'bio' => $this->profile['bio'],
-                    'facebook' => $this->profile['facebook'],
-                    'instagram' => $this->profile['instagram'],
+                    'facebook' => $this->profile['facebook'] ?? null,
+                    'instagram' => $this->profile['instagram'] ?? null,
                     'front_page' => $url ?? $this->profile['front_page'],
                 ]
             );
@@ -72,6 +72,7 @@ class UserUpdate extends Component
             auth()->user()->save();
             auth()->user()->assignRole('Creador');
             session()->flash('message', 'Profile updated successfully.');
+            redirect()->route('creator.comics');
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
         }
