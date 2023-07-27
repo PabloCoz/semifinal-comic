@@ -11,6 +11,7 @@ use App\Http\Livewire\User\ComicUser;
 use App\Http\Livewire\User\SearchUsers;
 use App\Http\Livewire\User\UserUpdate;
 use Illuminate\Support\Facades\Route;
+use PhpParser\Node\Stmt\Return_;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,7 @@ Route::get('/my-comics', ComicUser::class)->middleware('auth')->name('comics.use
 Route::get('faq', [QuestionController::class, 'index'])->name('faq.index');
 
 Route::post('faq', [QuestionController::class, 'store'])->name('faq.store');
+
+Route::get('info', function () {
+    return view('info');
+})->name('info');

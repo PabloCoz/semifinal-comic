@@ -1,5 +1,31 @@
 <x-app-layout>
-    <x-slider-component :sliders="$sliders" />
+    {{-- <x-slider-component :sliders="$sliders" /> --}}
+
+    <header class="w-full relative h-auto overflow-hidden">
+
+        <div class="max-w-5xl  mx-auto md:mx-10 lg:mx-20 relative z-20 select-none">
+            <div class="py-64">
+                <h1 class="uppercase font-josefin font-bold text-white md:text-4xl lg:text-6xl mr-8">
+                    <p>Forma parte</p>
+                    de nosotros
+                </h1>
+                <div class="block md:flex items-center md:space-x-3 space-y-2 md:space-y-0">
+                    <a href=""
+                        class="block font-josefin font-extrabold px-6 py-3 text-center rounded-full uppercase text-white bg-rosecomic">
+                        como lector</a>
+                    <a href=""
+                        class=" block font-josefin font-bold px-4 py-2 text-center rounded-full uppercase bg-white border-2 border-white">
+                        como creador</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <video class="absolute top-0 left-0 w-full h-full object-scale-down md:object-cover object-center z-10"
+                autoplay loop muted>
+                <source src="{{ asset('img/prueba.mp4') }}" type="video/mp4">
+            </video>
+        </div>
+    </header>
 
     <section class="bg-black pt-10">
         <div class="max-w-xl mx-auto">
@@ -9,7 +35,8 @@
                 </div>
                 <div class="flex justify-center items-center">
                     <div>
-                        <h1 class="font-josefin font-extrabold text-2xl text-center text-rosecomic">¿ERES PRINCIPIANTE EN
+                        <h1 class="font-josefin font-extrabold text-2xl text-center text-rosecomic">¿ERES PRINCIPIANTE
+                            EN
                             LOS COMICS?</h1>
                         <div class="flex justify-center">
                             <button class="mt-4 bg-white rounded-full px-3 py-2 font-bold font-josefin uppercase">

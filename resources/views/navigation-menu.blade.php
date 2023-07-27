@@ -25,7 +25,7 @@
                 @endif 
                     hover:transition hover:duration-500 hover:ease-in-out">Inicio</a>
             <a href="{{ route('comics.index') }}"
-            class="font-semibold uppercase leading-6 text-white border-b-4 
+                class="font-semibold uppercase leading-6 text-white border-b-4 
                 @routeIs('comics.index') 
                     border-rose-600
                 @else
@@ -42,6 +42,14 @@
                     hover:transition hover:duration-500 hover:ease-in-out">Creadores</a>
             {{-- <a href="{{ route('plan') }}"
                 class="font-semibold uppercase leading-6 text-white border-b-4 border-transparent hover:border-rose-600 hover:transition hover:duration-500 hover:ease-in-out">Planes</a> --}}
+            <a href="{{ route('info') }}"
+                class="font-semibold uppercase leading-6 text-white border-b-4 
+                @routeIs('info') 
+                    border-rose-600
+                @else
+                    border-transparent hover:border-rose-600 
+                @endif 
+                    hover:transition hover:duration-500 hover:ease-in-out">Nosotros</a>
             <a href="{{ route('faq.index') }}"
                 class="font-semibold uppercase leading-6 text-white border-b-4 
                 @routeIs('faq.index') 
