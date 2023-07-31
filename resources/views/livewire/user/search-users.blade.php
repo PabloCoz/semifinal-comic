@@ -1,45 +1,50 @@
 <div class="bg-black">
-    <x-slider-component :sliders="$sliders" />
+    {{-- <x-slider-component :sliders="$sliders" /> --}}
     <header class="w-full h-auto overflow-hidden bg-rose-600">
 
-        <div class="max-w-5xl mx-auto select-none">
-            <div class="py-40 ">
-                <h1 class="uppercase mb-6 text-5xl lg:text-6xl font-bold text-white text-center">¿Ya te sabes
-                    el nombre de tu creador de comics preferido?</h1>
-                <div class="flex justify-center mx-2 md:mx-0">
+        <section class="py-10 bg-fixed bg-center bg-no-repeat bg-cover relative"
+            style="background-image: url({{ asset('img/final1.png') }})">
+            <div class="max-w-5xl mx-auto relative z-40 select-none">
+                <div class="py-40 ">
+                    <h1 class="uppercase mb-6 text-5xl lg:text-6xl font-bold text-white text-center">¿Ya te sabes
+                        el nombre de tu creador de comics preferido?</h1>
+                    <div class="flex justify-center mx-2 md:mx-0">
 
-                    <form class="pt-2 relative text-gray-600 w-full" autocomplete="off">
-                        <input wire:model="search"
-                            class="w-full bg-white h-10 px-3 pr-16 rounded-lg text-sm border focus:border-black ring-0 focus:ring-black focus:outline-none"
-                            type="search" name="search" placeholder="Ingrese nombre de usuario">
-                        <button type="submit"
-                            class="bg-black text-white font-bold py-2 px-4 rounded-r absolute right-0 top-0 mt-2 focus:outline-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                            </svg>
-                        </button>
-                        @if ($search)
-                            <ul class="absolute z-50 left-0 w-full bg-white mt-1 rounded overflow-hidden">
-                                @forelse ($this->results as $result)
-                                    <a href="{{ route('users.show', $result->user) }}">
+                        <form class="pt-2 relative text-gray-600 w-full" autocomplete="off">
+                            <input wire:model="search"
+                                class="w-full bg-white h-10 px-3 pr-16 rounded-lg text-sm border focus:border-black ring-0 focus:ring-black focus:outline-none"
+                                type="search" name="search" placeholder="Ingrese nombre de usuario">
+                            <button type="submit"
+                                class="bg-black text-white font-bold py-2 px-4 rounded-r absolute right-0 top-0 mt-2 focus:outline-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                            </button>
+                            @if ($search)
+                                <ul class="absolute z-50 left-0 w-full bg-white mt-1 rounded overflow-hidden">
+                                    @forelse ($this->results as $result)
+                                        <a href="{{ route('users.show', $result->user) }}">
+                                            <li class="leading-10 px-5 text-xs cursor-pointer hover:bg-gray-300">
+                                                {{ $result->name . ' ' . $result->lastname }}
+                                                ({{ $result->user->username }})
+                                            </li>
+                                        </a>
+                                    @empty
                                         <li class="leading-10 px-5 text-xs cursor-pointer hover:bg-gray-300">
-                                            {{ $result->name . ' ' . $result->lastname }}
-                                            ({{ $result->user->username }})
+                                            No hay resultados
                                         </li>
-                                    </a>
-                                @empty
-                                    <li class="leading-10 px-5 text-xs cursor-pointer hover:bg-gray-300">
-                                        No hay resultados
-                                    </li>
-                                @endforelse
-                            </ul>
-                        @endif
-                    </form>
+                                    @endforelse
+                                </ul>
+                            @endif
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="absolute bg-gradient-to-r from-skcomic to-rosecomic opacity-90 z-30 top-0 left-0 w-full h-full">
+            </div>
+        </section>
     </header>
     <section class="p-2">
         <div class="max-w-4xl mx-auto px-4">
@@ -54,11 +59,11 @@
                 </div>
                 <div class="p-3 md:w-96">
                     <div class="flex justify-end">
-                        <img class="h-44 md:h-64" src="{{ asset('img/images/AGA.png') }}" alt="">
+                        <img class="h-44 md:h-64" src="{{ asset('img/images/AGA.png') }}" loading="lazy">
                     </div>
                     <div class="flex justify-start">
                         <img class="h-44 md:h-64 -mt-20 md:-mt-28" src="{{ asset('img/images/blancoo.png') }}"
-                            alt="">
+                            loading="lazy">
                     </div>
 
                 </div>
