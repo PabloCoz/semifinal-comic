@@ -10,6 +10,11 @@ class Chapter extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    public function getCompletedAttribute()
+    {
+        return $this->users->contains(auth()->user());
+    }
+
     public function comic()
     {
         return $this->belongsTo(Comic::class);

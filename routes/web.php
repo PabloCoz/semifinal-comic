@@ -44,7 +44,7 @@ Route::get('/search-users', SearchUsers::class)->name('search.users');
 
 Route::get('users/{user}', [UserController::class, 'show'])->middleware('auth')->name('users.show');
 
-Route::get('/comics/{comic}/{chapter}', ComicStatus::class)->middleware('auth')->name('comics.status');
+Route::get('/comics/{comic}', ComicStatus::class)->middleware('auth')->name('comics.status');
 
 Route::post('users/{user}/original', [UserController::class, 'original'])->middleware('auth')->name('users.original');
 

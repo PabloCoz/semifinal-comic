@@ -1,5 +1,5 @@
 <div class="bg-black">
-    <div class="max-w-5xl mx-auto py-5">
+    <div class="max-w-5xl mx-3 md:mx-auto py-5">
         <div class="my-5">
             <h1 class="text-3xl font-bold font-josefin uppercase text-rose-500">Mis comics</h1>
         </div>
@@ -8,7 +8,7 @@
                 class="bg-rose-500 text-white rounded-full px-3 py-2 font-bold">Crear nuevo comic</a>
         </div>
         <div class="flex flex-col">
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="-my-2 overflow-x-auto  lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="w-full divide-y divide-gray-200">
@@ -158,5 +158,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="py-4 mx-2">
+        {{ $comics->links() }}
     </div>
 </div>

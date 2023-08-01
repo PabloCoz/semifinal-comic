@@ -4,16 +4,30 @@ namespace App\Http\Livewire\Comics;
 
 use App\Models\Chapter;
 use App\Models\Comic;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
 class ComicStatus extends Component
 {
-    public $comic, $chapter;
+    use AuthorizesRequests;
+    public $comic, $chapter, $current;
 
-    public function mount(Comic $comic, Chapter $chapter)
+    public function mount(Comic $comic)
     {
         $this->comic = $comic;
-        $this->chapter = $chapter;
+
+        foreach ($comic->chapters as $chapter) {
+            if (!$chapter->completed) {
+                $this->current = $chapter;
+                break;
+            }
+        }
+        
+        if (!$this->current) {
+            $this->current = $comic->chapters->last();
+        }
+
+        $this->authorize('enrolled', $comic);
 
         //$this->comic->chapters->pluck('id')->search($this->chapter->id);
     }

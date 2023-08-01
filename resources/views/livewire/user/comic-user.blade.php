@@ -1,17 +1,35 @@
 <div>
     <div class="max-w-5xl mx-auto py-10">
         <div>
-            <h1 class="text-3xl font-bold text-center">Mis comics suscritos</h1>
+            <h1 class="text-3xl font-bold text-center text-white font-josefin">Mis comics suscritos</h1>
             <div class="mt-10">
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
                     @forelse ($comics as $comic)
-                        <a href="{{ route('comics.show', $comic) }}"
-                            class="overflow-hidden bg-white shadow-md rounded-lg">
-                            <div class="px-2 py-6">
-                                <img src="{{ Storage::url($comic->image->url) }}" class="rounded-lg">
-                                <div class="mt-1">
-                                    <h1 class="text-xl font-bold text-center font-josefin">{{ $comic->title }}</h1>
+                        <a href="{{ route('comics.status', $comic) }}">
+                            <div class="flex justify-center items-center relative">
+                                <figure class="md:rounded-md shadow-md overflow-hidden">
+                                    <img class="h-72 object-center object-cover w-full"
+                                        src="{{ Storage::url($comic->image->url) }}" alt="" loading="lazy">
+                                </figure>
+                                <div class="absolute top-1 left-2 bg-yellow-500 px-1 py-0.5 rounded-lg">
+                                    <h1 class="font-josefin font-bold">{{ $comic->category->name }}
+                                    </h1>
                                 </div>
+                                <div class="absolute top-1 right-2 bg-rose-600 text-white px-1 py-1 rounded-lg">
+                                    <div class="font-josefin font-bold flex items-center">
+                                        <button>
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                        <p class="ml-0.5">{{ $comic->users->count() }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h1 class="font-josefin text-skcomic uppercase text-center font-bold">
+                                    {{ Str::limit($comic->title, 36, '...') }}</h1>
+                                <p class="text-sm text-white text-justify font-semibold">
+                                    {{ Str::limit($comic->description, 50, '...') }}</p>
                             </div>
                         </a>
                     @empty
