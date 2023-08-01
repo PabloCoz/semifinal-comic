@@ -12,7 +12,7 @@ class ImageChapter extends Component
 {
     use WithFileUploads;
 
-    public $chapter, $ident, $img, $image, $ide;
+    public $chapter, $ident, $img = [], $image, $ide;
 
     public function mount(Chapter $chapter)
     {

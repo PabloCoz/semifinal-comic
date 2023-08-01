@@ -91,6 +91,10 @@
                         @endforeach
 
                     </div>
+
+                    @error('img.*')
+                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
         </div>
