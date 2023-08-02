@@ -159,8 +159,10 @@
                             class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
                         {{-- <a href="{{ route('plan') }}"
                             class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Planes</a> --}}
+                        <a href="{{ route('info') }}"
+                            class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Nosotros</a>
                         <a href="{{ route('faq.index') }}"
-                            class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Creadores</a>
+                            class="-mx-3 block uppercase rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">FAQ</a>
                     </div>
                     <div class="py-6">
                         @auth
@@ -191,3 +193,4 @@
         </div>
     </div>
 </header>
+

@@ -3,9 +3,9 @@
 
     <header class="w-full relative h-auto overflow-hidden">
 
-        <div class="max-w-5xl  mx-auto md:mx-10 lg:mx-20 relative z-20 select-none">
+        <div class="max-w-5xl mx-auto md:mx-10 lg:mx-20 relative z-20 select-none">
             <div class="py-64">
-                <h1 class="uppercase font-josefin font-bold text-white md:text-4xl lg:text-6xl mr-8">
+                <h1 class="uppercase font-josefin font-bold text-white text-5xl md:text-4xl lg:text-6xl mr-8">
                     <p>Forma parte</p>
                     de nosotros
                 </h1>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div>
-            <video class="absolute top-0 left-0 w-full h-full object-scale-down md:object-cover object-center z-10"
+            <video class="absolute top-0 left-0 w-full h-5/6 md:h-full object-center object-cover md:object-center z-10"
                 autoplay loop muted>
                 <source src="{{ asset('img/prueba.mp4') }}" type="video/mp4">
             </video>
