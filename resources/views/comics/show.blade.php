@@ -55,7 +55,7 @@
                         <div class="flex items-center justify-center mt-10">
                             @auth
                                 @can('enrolled', $comic)
-                                    <a href="{{ route('comics.status', ['comic' => $comic, 'chapter' => $comic->chapters->first()]) }}"
+                                    <a href="{{ route('comics.status', $comic) }}"
                                         class="rounded-full p-3 bg-rose-600 text-white font-bold font-josefin">
                                         Leer Ahora!
                                     </a>
