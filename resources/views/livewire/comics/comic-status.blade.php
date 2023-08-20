@@ -56,6 +56,8 @@
                 </li>
             @endforeach
         </ul>
+
+        @livewire('comics.comic-comments', ['chapter' => $current] , key($current->id))
     </div>
     @push('up')
         <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>

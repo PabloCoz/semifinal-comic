@@ -145,21 +145,22 @@
                                             @endcan
                                         </td>
                                     </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="5" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            No hay comics registrados
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+                                    @empty
+                                        <tr>
+                                            <td colspan="5" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                No hay comics registrados
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="py-4 mx-2">
+                {{ $comics->links() }}
+            </div>
         </div>
+
     </div>
-    <div class="py-4 mx-2">
-        {{ $comics->links() }}
-    </div>
-</div>

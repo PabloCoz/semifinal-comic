@@ -49,6 +49,7 @@ class ComicStatus extends Component
         if ($this->index == 0) {
             return null;
         } else {
+            $this->emitTo('comics.comic-comments', 'render');
             return $this->chapters[$this->index - 1];
         }
     }
@@ -59,6 +60,7 @@ class ComicStatus extends Component
             return null;
         } else {
             $this->completed();
+            $this->emitTo('comics.comic-comments', 'render');
             return $this->chapters[$this->index + 1];
         }
     }
