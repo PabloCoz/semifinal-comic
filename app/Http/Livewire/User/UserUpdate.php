@@ -17,7 +17,7 @@ class UserUpdate extends Component
         'profile.name' => 'required',
         'profile.lastname' => 'required',
         'profile.email' => 'required|email',
-        'profile.phone' => 'required',
+        //'profile.phone' => 'required',
         //'profile.address' => 'required',
         //'profile.country' => 'required',
         //'profile.city' => 'required',
@@ -57,14 +57,14 @@ class UserUpdate extends Component
                     'name' => $this->profile['name'],
                     'lastname' => $this->profile['lastname'],
                     'email' => $this->profile['email'],
-                    'phone' => $this->profile['phone'],
+                    'phone' => $this->profile['phone'] ?? null,
                     'address' => $this->profile['address'] ?? null,
                     'country' => $this->profile['country'] ?? null,
                     'city' => $this->profile['city'] ?? null,
                     'bio' => $this->profile['bio'],
                     'facebook' => $this->profile['facebook'] ?? null,
                     'instagram' => $this->profile['instagram'] ?? null,
-                    'front_page' => $url ?? $this->profile['front_page'],
+                    'front_page' => $this->img ? $url : $this->profile['front_page'] ?? null,
                 ]
             );
 

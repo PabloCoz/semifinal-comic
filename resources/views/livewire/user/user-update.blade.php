@@ -134,13 +134,12 @@
                             <label for="bio"
                                 class="block text-sm font-medium leading-6 text-gray-900">Biografia</label>
                             <div class="mt-2">
-                                <textarea id="bio" wire:model="profile.bio" rows="3"
+                                <textarea id="bio" wire:model="profile.bio" rows="3" placeholder="Escribe algo sobre ti..."
                                     class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"></textarea>
                             </div>
                             @error('profile.bio')
                                 <span class="text-red-500 text-xs">{{ $message }}</span>
                             @enderror
-                            <p class="mt-3 text-sm leading-6 text-gray-600">Escribe algo sobre ti...</p>
                         </div>
                         <div class="col-span-full">
                             <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Foto de
@@ -150,7 +149,7 @@
                                 @if ($img)
                                     <img src="{{ $img->temporaryUrl() }}" class="w-1/2">
                                 @else
-                                    @if (auth()->user()->profile)
+                                    @if (auth()->user()->profile->front_page)
                                         <img src="{{ Storage::url($profile['front_page']) }}" class="w-1/2">
                                     @endif
                                 @endif

@@ -10,10 +10,10 @@
                     de nosotros
                 </h1>
                 <div class="block md:flex items-center md:space-x-3 space-y-2 md:space-y-0">
-                    <a href=""
+                    <a href="{{ route('comics.index') }}"
                         class="block font-josefin font-extrabold px-6 py-3 text-center rounded-full uppercase text-white bg-rosecomic">
                         como lector</a>
-                    <a href=""
+                    <a href="{{ route('info') }}"
                         class=" block font-josefin font-bold px-4 py-2 text-center rounded-full uppercase bg-white border-2 border-white">
                         como creador</a>
                 </div>

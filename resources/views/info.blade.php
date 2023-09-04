@@ -58,6 +58,19 @@
                     </div>
                 </div>
             </div>
+            <div class="mt-10 flex items-center justify-center">
+                @auth
+                    <a href="{{ route('register-creator') }}">
+                        <button
+                            class="px-6 py-3 bg-gradient-to-r from-skcomic to-rosecomic rounded-full uppercase text-lg italic font-extrabold tracking-wider">
+                            REGISTRARSE
+                        </button>
+                    </a>
+                @else
+                    @livewire('modals')
+                @endauth
+
+            </div>
         </div>
     </section>
     <x-footer />
