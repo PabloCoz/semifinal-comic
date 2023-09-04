@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->integer('position');
             $table->string('image')->nullable();
-            $table->foreignId('comic_id')->constrained();
+            $table->foreignId('comic_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

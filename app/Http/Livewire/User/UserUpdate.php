@@ -24,6 +24,22 @@ class UserUpdate extends Component
         'profile.bio' => 'required',
         //'profile.facebook' => 'required',
         //'profile.instagram' => 'required',
+        'img' => 'nullable|image|max:3072',
+    ];
+
+    protected $messages = [
+        'profile.name.required' => 'El nombre es requerido',
+        'profile.lastname.required' => 'El apellido es requerido',
+        'profile.email.required' => 'El email es requerido',
+        'profile.email.email' => 'El email no es válido',
+        //'profile.phone.required' => 'El teléfono es requerido',
+        //'profile.address.required' => 'La dirección es requerida',
+        //'profile.country.required' => 'El país es requerido',
+        //'profile.city.required' => 'La ciudad es requerida',
+        'profile.bio.required' => 'La biografía es requerida',
+        //'profile.facebook.required' => 'El facebook es requerido',
+        //'profile.instagram.required' => 'El instagram es requerido',
+        'img.image' => 'El archivo debe ser una imagen',
     ];
 
     public function mount()
@@ -71,7 +87,7 @@ class UserUpdate extends Component
             auth()->user()->is_creator = true;
             auth()->user()->save();
             auth()->user()->assignRole('Creador');
-            session()->flash('message', 'Profile updated successfully.');
+            session()->flash('message', 'Perfil actualizado correctamente.');
             redirect()->route('creator.comics');
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());

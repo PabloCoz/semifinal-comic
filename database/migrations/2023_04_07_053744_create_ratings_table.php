@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->integer('value');
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('comic_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('comic_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

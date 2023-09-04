@@ -2,12 +2,12 @@
     <div class="max-w-2xl mx-auto px-6 lg:px-8 bg-white mt-5 rounded-lg overflow-hidden py-4">
         <!-- Alertas -->
         @if (session()->has('message'))
-            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50"
                 role="alert">
                 <span class="font-medium">{{ session('message') }}</span>
             </div>
         @elseif (session()->has('error'))
-            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50"
                 role="alert">
                 <span class="font-medium">{{ session('error') }}</span>
             </div>
@@ -18,6 +18,11 @@
                     <h2 class="text-base font-semibold leading-7 text-gray-900">Perfil de Creador</h2>
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div class="sm:col-span-6">
+                            <h1 class=" col-span-full text-sm font-semibold text-red-600 italic">*Campos obligatorios</h1>
+                            <hr class="col-span-full border-gray-900/20 mt-3">
+                        </div>
+                        
                         <div class="sm:col-span-3">
                             <label for="first-name"
                                 class="block text-sm font-medium leading-6 text-gray-900">Nombres</label>
@@ -52,6 +57,23 @@
                             @error('profile.email')
                                 <span class="text-red-500 text-xs">{{ $message }}</span>
                             @enderror
+                        </div>
+
+                        <div class="col-span-full">
+                            <label for="bio"
+                                class="block text-sm font-medium leading-6 text-gray-900">Biografia</label>
+                            <div class="mt-2">
+                                <textarea id="bio" wire:model="profile.bio" rows="3" placeholder="Escribe algo sobre ti..."
+                                    class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"></textarea>
+                            </div>
+                            @error('profile.bio')
+                                <span class="text-red-500 text-xs">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="sm:col-span-6">
+                            <h1 class=" col-span-full text-sm font-semibold text-gray-900 italic">*Campos opcionales</h1>
+                            <hr class="col-span-full border-gray-900/20 mt-3">
                         </div>
 
                         <div class="sm:col-span-3">
@@ -130,17 +152,7 @@
                                 <span class="text-red-500 text-xs">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="col-span-full">
-                            <label for="bio"
-                                class="block text-sm font-medium leading-6 text-gray-900">Biografia</label>
-                            <div class="mt-2">
-                                <textarea id="bio" wire:model="profile.bio" rows="3" placeholder="Escribe algo sobre ti..."
-                                    class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"></textarea>
-                            </div>
-                            @error('profile.bio')
-                                <span class="text-red-500 text-xs">{{ $message }}</span>
-                            @enderror
-                        </div>
+
                         <div class="col-span-full">
                             <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Foto de
                                 portada</label>
@@ -149,8 +161,13 @@
                                 @if ($img)
                                     <img src="{{ $img->temporaryUrl() }}" class="w-1/2">
                                 @else
-                                    @if (auth()->user()->profile->front_page)
-                                        <img src="{{ Storage::url($profile['front_page']) }}" class="w-1/2">
+                                    @if (auth()->user()->profile)
+                                        @if (auth()->user()->profile->front_page)
+                                            <img src="{{ Storage::url(auth()->user()->profile->front_page) ?? '' }}"
+                                                class="w-1/2">
+                                        @else
+                                            <img src="{{ asset('img/cover-photo.jpg') }}" class="w-1/2">
+                                        @endif
                                     @endif
                                 @endif
 
