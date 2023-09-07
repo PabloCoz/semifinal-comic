@@ -29,7 +29,7 @@ class CategoryController extends Controller
 
         Category::create($request->all());
 
-        return redirect()->route('admin.categories.index')->with('message', 'Categoria criada com sucesso!');
+        return redirect()->route('admin.categories.index')->with('message', 'Categoria creada!');
     }
 
     public function show($id)
@@ -52,7 +52,7 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        return redirect()->route('admin.categories.index');        
+        return redirect()->route('admin.categories.index');
     }
 
     public function destroy(Category $category)

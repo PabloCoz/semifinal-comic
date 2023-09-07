@@ -16,7 +16,7 @@
             <div class="mt-4">
                 <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
                 <div class="mt-1">
-                    <input type="text" name="slug" id="slug" value="{{ old('slug') }}" disabled
+                    <input type="text" name="slug" id="slug" value="{{ old('slug') }}" readonly
                         class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
                 @error('slug')
