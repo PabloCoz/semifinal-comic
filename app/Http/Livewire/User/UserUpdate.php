@@ -88,7 +88,7 @@ class UserUpdate extends Component
             auth()->user()->save();
             auth()->user()->assignRole('Creador');
             session()->flash('message', 'Perfil actualizado correctamente.');
-            redirect()->route('creator.comics');
+            return redirect()->route('creator.comics.index');
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
         }
