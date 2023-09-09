@@ -52,8 +52,8 @@ class ComicController extends Controller
             'description' => 'required',
             'category_id' => 'required',
             'profile_id' => 'required',
-            'img' => 'image',
-            'file' => 'image',
+            'img' => 'image|max:5120',
+            'file' => 'image|max:5120',
         ]);
         $comic =  Comic::create($request->all());
         if ($request->file('file')) {
