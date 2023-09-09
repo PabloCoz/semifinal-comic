@@ -58,6 +58,47 @@
                     </div>
                 </div>
             </div>
+            <section>
+                <h1 class="truncate text-rosecomic text-2xl font-bold uppercase font-josefin text-center">¿como es
+                    nuestro sistema de pago?</h1>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-12">
+                    <div>
+                        <h1 class="text-rosecomic text-center text-xl uppercase font-bold font-josefin">1.
+                            anuncios</h1>
+                        <p class="text-white font-semibold text-center text-lg mt-6">
+                            Tendrás que publicar 5 cápitulos y a partir del sexto podrás activar esta opción, las
+                            personas
+                            que quieran ver el siguiente cápitulo tendrán que ver si o si un anuncio de 10 segundos.
+                            El 90% ganacias serán para el autor y el 10% para BAPSCOMIC.
+                        </p>
+                    </div>
+                    <div>
+                        <h1 class="text-rosecomic text-center text-xl uppercase font-bold font-josefin">2. que
+                            el lector decida pontenciar su apoyo</h1>
+                        <p class="text-white font-semibold text-center text-lg mt-6">A partir del decimo cápitulo se
+                            habilitará la opción "POTENCIAR TU APOYO". Para este punto es probable
+                            que tus lectores se hayan encariñado con tu historia por lo que podrán ayudarte elevando la
+                            cantidad
+                            de segundos del anuncio pasando de 10 seg a 30 seg. Esta opcion es libre de elegir para el
+                            lectores
+                            no será obligatoria así que invitalos creativamente en tu comic a pulsar el boton
+                            "POTENCIAR TU APOYO". El 90% ganacias serán para el autor y el 20% para BAPSCOMIC.
+                        </p>
+                    </div>
+                    <div>
+                        <h1 class="text-rosecomic text-center text-xl uppercase font-bold font-josefin">3.
+                            pagaran directamente por tu contenido</h1>
+                        <p class="text-white font-semibold text-center text-lg mt-6">
+                            Al llegar al cápitulo 30 se habilitará la opción "UNA MONEDA POR CÁPITULO". A partir de aqui
+                            probablemente habrás conectado con tus lectores y querrán los cápitulos sin anuncios, es por
+                            eso
+                            que habilitamos esta opción para que los lectores ya no vean ningun anuncio y puedan leer
+                            sin problemas.
+                        </p>
+                    </div>
+                </div>
+            </section>t
             <div class="mt-10 flex items-center justify-center">
                 @auth
                     <a href="{{ route('register-creator') }}">
