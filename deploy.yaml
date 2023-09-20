@@ -21,7 +21,6 @@ tasks:
     - artisan:view:cache
     - artisan:event:cache
     - artisan:migrate
-    - artisan:db:seed
     - npm:install
     - build
     - deploy:publish

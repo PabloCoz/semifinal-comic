@@ -163,7 +163,7 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        $this->authorize('created', $comic);
+        //$this->authorize('created', $comic);
         $comic->delete();
         return redirect()->route('creator.comics.index')->with('success', 'Comic deleted successfully');
     }

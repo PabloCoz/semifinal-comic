@@ -8,6 +8,8 @@ use App\Events\SubsCreated;
 use App\Listeners\BuyMoney as ListenersBuyMoney;
 use App\Listeners\PlanCreated as ListenersPlanCreated;
 use App\Listeners\SubsCreated as ListenersSubsCreated;
+use App\Models\Comic;
+use App\Observers\ComicObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
@@ -37,7 +39,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Comic::observe(ComicObserver::class);
     }
 
     /**

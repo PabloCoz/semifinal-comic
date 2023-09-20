@@ -143,6 +143,18 @@
                                                 <a href="{{ route('creator.comics.edit', $comic) }}"
                                                     class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                             @endcan
+                                            @can('Eliminar Comic (creador)')
+                                                <a href="#" class="text-red-600 hover:text-red-900"
+                                                    onclick="event.preventDefault(); document.getElementById('delete-comic-{{ $comic->id }}').submit();">
+                                                    Delete
+                                                </a>
+                                                <form id="delete-comic-{{ $comic->id }}"
+                                                    action="{{ route('creator.comics.destroy', $comic) }}" method="POST"
+                                                    class="hidden">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                     @empty
