@@ -54,7 +54,7 @@ class ComicController extends Controller
             'category_id' => 'required',
             'profile_id' => 'required',
             'file' => 'image|max:5120',
-            'image' => 'image|max:5120',
+            'img' => 'image|max:5120',
         ]);
         $comic =  Comic::create($request->all());
         if ($request->file('file')) {
@@ -65,7 +65,7 @@ class ComicController extends Controller
         }
 
         if ($request->file('img')) {
-            $url2 = Storage::put('comic_portada', $request->file('image'));
+            $url2 = Storage::put('comic_portada', $request->file('img'));
             $comic->update([
                 'img' => $url2
             ]);
