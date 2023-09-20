@@ -138,22 +138,26 @@
                                                 @default
                                             @endswitch
                                         </td>
-                                        <td class="px-6 py-4 text-right text-sm font-medium">
+                                        <td class="px-6 py-4 text-right text-sm font-medium block">
                                             @can('Editar Comic (creador)')
-                                                <a href="{{ route('creator.comics.edit', $comic) }}"
-                                                    class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                <div>
+                                                    <a href="{{ route('creator.comics.edit', $comic) }}"
+                                                        class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                                </div>
                                             @endcan
                                             @can('Eliminar Comic (creador)')
-                                                <a href="#" class="text-red-600 hover:text-red-900"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-comic-{{ $comic->id }}').submit();">
-                                                    Delete
-                                                </a>
-                                                <form id="delete-comic-{{ $comic->id }}"
-                                                    action="{{ route('creator.comics.destroy', $comic) }}" method="POST"
-                                                    class="hidden">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
+                                                <div>
+                                                    <a href="#" class="text-red-600 hover:text-red-900"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-comic-{{ $comic->id }}').submit();">
+                                                        Eliminar
+                                                    </a>
+                                                    <form id="delete-comic-{{ $comic->id }}"
+                                                        action="{{ route('creator.comics.destroy', $comic) }}"
+                                                        method="POST" class="hidden">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </div>
                                             @endcan
                                         </td>
                                     </tr>

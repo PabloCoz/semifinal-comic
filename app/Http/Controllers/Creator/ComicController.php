@@ -49,7 +49,7 @@ class ComicController extends Controller
         //return $request;
         $request->validate([
             'title' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique:comics|max:255',
             'description' => 'required',
             'category_id' => 'required',
             'profile_id' => 'required',
@@ -93,7 +93,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //$this->authorize('created', $comic);
+        $this->authorize('created', $comic);
         $categories = Category::pluck('name', 'id');
         return view('creator.comics.edit', compact('comic', 'categories'));
     }
@@ -110,7 +110,7 @@ class ComicController extends Controller
         $this->authorize('created', $comic);
         $request->validate([
             'title' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique:comics,slug,' . $comic->id . '|max:255',
             'description' => 'required',
             'category_id' => 'required',
             'profile_id' => 'required',
@@ -163,7 +163,7 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //$this->authorize('created', $comic);
+        $this->authorize('created', $comic);
         $comic->delete();
         return redirect()->route('creator.comics.index')->with('success', 'Comic deleted successfully');
     }
