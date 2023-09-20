@@ -76,6 +76,7 @@
         </figure>
 
         <div>
+            {!! Form::label('img', 'Selecciona una imagen') !!}
             {!! Form::file('img', ['class' => 'rounded w-full ', 'id' => 'img', 'accept' => 'image/*']) !!}
 
             <p class="font-bold text-blue-600 italic text-sm">

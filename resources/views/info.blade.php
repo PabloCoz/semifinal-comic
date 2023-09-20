@@ -98,7 +98,7 @@
                         </p>
                     </div>
                 </div>
-            </section>t
+            </section>
             <div class="mt-10 flex items-center justify-center">
                 @auth
                     <a href="{{ route('register-creator') }}">

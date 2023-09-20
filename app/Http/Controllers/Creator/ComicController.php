@@ -46,27 +46,28 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request;
         $request->validate([
             'title' => 'required',
             'slug' => 'required',
             'description' => 'required',
             'category_id' => 'required',
             'profile_id' => 'required',
-            'img' => 'image|max:5120',
             'file' => 'image|max:5120',
+            'image' => 'image|max:5120',
         ]);
         $comic =  Comic::create($request->all());
         if ($request->file('file')) {
-            $url = Storage::put('comics', $request->file('file'));
+            $url1 = Storage::put('comics', $request->file('file'));
             $comic->image()->create([
-                'url' => $url
+                'url' => $url1
             ]);
         }
 
         if ($request->file('img')) {
-            $url = Storage::put('comic_portada', $request->file('img'));
+            $url2 = Storage::put('comic_portada', $request->file('image'));
             $comic->update([
-                'img' => $url
+                'img' => $url2
             ]);
         }
 
@@ -92,7 +93,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        $this->authorize('created', $comic);
+        //$this->authorize('created', $comic);
         $categories = Category::pluck('name', 'id');
         return view('creator.comics.edit', compact('comic', 'categories'));
     }
