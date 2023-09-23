@@ -12,7 +12,9 @@ class ComicsIndex extends Component
     
     public function render()
     {
-        $comics = Comic::where('user_id', auth()->user()->id)->paginate(10);
+        $comics = Comic::where('user_id', auth()->user()->id)
+            ->orderBy('id', 'desc')
+            ->paginate(10);
         return view('livewire.creator.comics-index', compact('comics'));
     }
 }
