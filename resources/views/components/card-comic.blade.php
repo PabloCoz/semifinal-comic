@@ -6,7 +6,9 @@
                 <img class="h-72 object-center object-cover w-full" src="{{ Storage::url($comic->image->url) }}"
                     alt="" loading="lazy">
             </figure>
-            <div class="absolute top-1 left-2 bg-yellow-500 px-1 py-0.5 rounded-lg">
+            <div class="absolute top-1 left-2 px-1 py-0.5 rounded-lg"
+                style="background-color: {{ $comic->category->color }};
+                        color: {{ $comic->category->text_color }}">
                 <h1 class="font-josefin font-bold">{{ $comic->category->name }}
                 </h1>
 
@@ -24,7 +26,8 @@
         <div>
             <h1 class="font-josefin text-skcomic uppercase text-center font-bold">
                 {{ Str::limit($comic->title, 36, '...') }}</h1>
-            <p class="text-sm text-white text-justify font-semibold">{{ Str::limit($comic->description, 50, '...') }}</p>
+            <p class="text-sm text-white text-justify font-semibold">{{ Str::limit($comic->description, 50, '...') }}
+            </p>
         </div>
     </a>
 </div>

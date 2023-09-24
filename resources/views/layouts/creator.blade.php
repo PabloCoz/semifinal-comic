@@ -43,12 +43,12 @@
                     <li class="leading-7 mb-1 border-l-4 pl-2 @routeIs('creator.comics.chapter', $comic) border-rose-600 @endif">
                         <a href="{{ route('creator.comics.chapter', $comic) }}">Capítulos</a>
                     </li>
-                    <li class="leading-7 mb-1 border-l-4 pl-2">
+                    {{-- <li class="leading-7 mb-1 border-l-4 pl-2">
                         <a href="">Detalles extras</a>
-                    </li>
+                    </li> --}}
                     <li class="leading-7 mb-1 border-l-4 pl-2 @routeIs('creator.comics.observations', $comic) border-rose-600 @endif">
                         <div class="flex items-center">
-                            
+                            <a href="{{route('creator.comics.observations', $comic)}}">Observaciones</a>
                         </div>
                     </li>
                 </ul>

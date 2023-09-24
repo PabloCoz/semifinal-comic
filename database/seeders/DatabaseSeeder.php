@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('comics');
         Storage::makeDirectory('comic_portada');
         Storage::makeDirectory('chapters');
-        /* $this->call(PermissionSeeder::class);
+        $this->call(PermissionSeeder::class);
         $this->call(RoleSeeder::class);
-        $this->call(UserSeeder::class); */
+        $this->call(UserSeeder::class);
         //$this->call(ProfileSeeder::class);
         //$this->call(CategorySeeder::class);
         //$this->call(PlanSeeder::class);

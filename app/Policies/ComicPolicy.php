@@ -29,7 +29,11 @@ class ComicPolicy
 
     public function enrolled(User $user, Comic $comic)
     {
-        return $comic->users->contains($user->id);
+        if ($user->can('Revisar Comic (administrador)')) {
+            return true;
+        } else {
+            return $comic->users->contains($user->id);
+        }
     }
 
     public function published(?User $user, Comic $comic)

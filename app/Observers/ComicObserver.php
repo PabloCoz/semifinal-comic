@@ -11,6 +11,7 @@ class ComicObserver
         $comic->chapters()->delete();
         $comic->ratings()->delete();
         $comic->image()->delete();
+        $comic->observations()->delete();
         $comic->users()->detach();
     }
 }

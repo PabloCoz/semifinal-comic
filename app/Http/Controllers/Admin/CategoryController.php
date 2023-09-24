@@ -25,6 +25,7 @@ class CategoryController extends Controller
             'name' => 'required|min:3|max:255',
             'slug' => 'required|min:3|max:255|unique:categories',
             'color' => 'required|min:3|max:255',
+            'color_text' => 'required|min:3|max:255',
         ]);
 
         Category::create($request->all());
@@ -48,6 +49,7 @@ class CategoryController extends Controller
             'name' => 'required|min:3|max:255',
             'slug' => 'required|min:3|max:255|unique:categories,slug,' . $category->id,
             'color' => 'required|min:3|max:255',
+            'color_text' => 'required|min:3|max:255',
         ]);
 
         $category->update($request->all());

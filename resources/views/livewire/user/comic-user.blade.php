@@ -11,7 +11,9 @@
                                     <img class="h-72 object-center object-cover w-full"
                                         src="{{ Storage::url($comic->image->url) }}" alt="" loading="lazy">
                                 </figure>
-                                <div class="absolute top-1 left-2 bg-yellow-500 px-1 py-0.5 rounded-lg">
+                                <div class="absolute top-1 left-2 px-1 py-0.5 rounded-lg"
+                                    style="background-color: {{ $comic->category->color }};
+                                            color: {{ $comic->category->text_color }}">
                                     <h1 class="font-josefin font-bold">{{ $comic->category->name }}
                                     </h1>
                                 </div>
@@ -33,15 +35,18 @@
                             </div>
                         </a>
                     @empty
-                        <div class="px-2 py-6 col-span-2 md:col-span-3">
-                            <h1 class="text-xl font-bold text-center font-josefin">No hay comics suscritos</h1>
-                        </div>
-                        <div class="flex items-center justify-center col-span-2 md:col-span-3">
-                            <a href="{{ route('comics.index') }}"
-                                class="px-4 py-2 text-white bg-rose-500 rounded-md hover:bg-rose-600 font-bold font-josefin">Ingresa
-                                aqui y
-                                suscribete a tus comics favoritos
-                            </a>
+                        <div class="col-star-2 col-span-2">
+                            <div class="px-2 py-6 col-span-2 md:col-span-3">
+                                <h1 class="text-xl font-bold text-center font-josefin text-white">No hay comics
+                                    suscritos</h1>
+                            </div>
+                            <div class="flex items-center justify-center col-span-2 md:col-span-3">
+                                <a href="{{ route('comics.index') }}"
+                                    class="px-4 py-2 text-white bg-rose-500 rounded-md hover:bg-rose-600 font-bold font-josefin">Ingresa
+                                    aqui y
+                                    suscribete a tus comics favoritos
+                                </a>
+                            </div>
                         </div>
                     @endforelse
                 </div>

@@ -21,6 +21,7 @@ class ComicController extends Controller
 
     public function approved(Comic $comic)
     {
+        $comic->observations()->delete();
         $comic->status = Comic::PUBLICADO;
         $comic->save();
         return redirect()->route('admin.comics.index');

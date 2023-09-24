@@ -8,7 +8,7 @@ config:
 hosts:
   baps:
     remote_user: root
-    hostname: bapscomics.com
+    hostname: allfree.app
     deploy_path: '/var/www/{{hostname}}'
 
 tasks:
@@ -21,6 +21,7 @@ tasks:
     - artisan:view:cache
     - artisan:event:cache
     - artisan:migrate
+    - artisan:db:seed
     - npm:install
     - build
     - deploy:publish

@@ -102,6 +102,9 @@
                                     <x-dropdown-link href="{{ route('creator.comics.index') }}">
                                         Panel de creador
                                     </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('users.show', auth()->user()) }}">
+                                        Mi perfil
+                                    </x-dropdown-link>
                                 @endcan
                                 @can('Ver Dashboard (administrador)')
                                     <x-dropdown-link href="{{ route('admin.home') }}">
@@ -193,4 +196,3 @@
         </div>
     </div>
 </header>
-

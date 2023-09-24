@@ -52,9 +52,10 @@
                                     Aceptar comic
                                 </button>
                             </form>
-                            <button class="rounded-full p-3 bg-yellow-400 font-bold font-josefin uppercase">
+                            {{-- <button class="rounded-full p-3 bg-yellow-400 font-bold font-josefin uppercase">
                                 Rechazar comic
-                            </button>
+                            </button> --}}
+                            @livewire('admin.comic.comic-observations', ['comic' => $comic])
                         </div>
                     </div>
                 </div>
@@ -63,7 +64,7 @@
         </div>
     </div>
 
-    <div class="">
+    <div class="bg-gray-50">
         <div class="max-w-5xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-8 gap-3">
                 <div class="col-span-6 order-2 md:order-1">

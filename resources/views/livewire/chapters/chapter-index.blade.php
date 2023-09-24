@@ -2,7 +2,7 @@
     @foreach ($chapters as $chapter)
         <div class="p-2 ">
             <div class="bg-gray-200 p-2 w-full rounded-lg flex justify-between items-center">
-                <div class="flex items-center">
+                <div class="flex items-center space-x-3">
                     <img src="{{ Storage::url($chapter->image) }}" class="h-20 " alt="">
                     <h1 class="text-sm md:text-lg font-bold font-josefin">{{ $chapter->position }}.
                         {{ $chapter->name }}
