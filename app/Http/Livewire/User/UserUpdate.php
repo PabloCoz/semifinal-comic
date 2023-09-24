@@ -54,7 +54,6 @@ class UserUpdate extends Component
 
     public function store()
     {
-        dd($this->img);
         $this->validate();
         try {
             if ($this->img) {
