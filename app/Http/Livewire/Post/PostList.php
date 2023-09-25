@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Post;
 use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class PostList extends Component
@@ -18,17 +19,22 @@ class PostList extends Component
     public function mount(User $user)
     {
         $this->user = $user;
-        $this->posts = $user->posts;
     }
 
     public function render()
     {
+        $this->posts = $this->user->posts;
         return view('livewire.post.post-list');
     }
 
     public function deletePost($postId)
     {
         $post = $this->user->posts()->find($postId);
+        foreach ($post->images as $image) {
+            Storage::delete($image->url);
+            $image->delete();
+        }
+        $post->images()->delete();
         $post->delete();
         $this->posts = $this->user->posts;
         $this->emitSelf('render');

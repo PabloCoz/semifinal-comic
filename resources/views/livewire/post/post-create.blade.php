@@ -40,7 +40,7 @@
             </div>
 
             <div class="mt-4 flex items-center justify-end">
-                <button wire:click="save" class="px-3 py-2 bg-rose-400 rounded-full font-bold text-white">Crear</button>
+                <button wire:click="save" class="px-3 py-2 bg-rose-400 rounded-full font-bold text-white">Crear post</button>
             </div>
 
         </x-slot>

@@ -16,8 +16,9 @@ class UserPolicy
         //
     }
 
-    public function premiun(User $to, User $creator)
+    public function premiun(User $creator, User $to)
     {
+        //dd($to);
         if ($creator->user_enrolled()->where('subs_user_id', $to->id)->exists()) {
             return true;
         } else {
