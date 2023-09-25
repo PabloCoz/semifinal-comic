@@ -8,7 +8,7 @@ config:
 hosts:
   baps:
     remote_user: root
-    hostname: allfree.app
+    hostname: bapscomics.com
     deploy_path: '/var/www/{{hostname}}'
 
 tasks:
