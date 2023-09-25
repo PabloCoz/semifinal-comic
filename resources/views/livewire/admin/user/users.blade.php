@@ -35,8 +35,8 @@
                 @forelse ($users as $user)
                     <tr class="bg-white border-b">
                         <th scope="row" class="px-6 py-4 font-medium ">
-                            <img src="{{ $user->profile_photo_url }}" class="h-14 w-14 object-cover object-center rounded-full" alt=""
-                                loading="lazy">
+                            <img src="{{ $user->profile_photo_url }}"
+                                class="h-14 w-14 object-cover object-center rounded-full" alt="" loading="lazy">
                         </th>
                         <td class="px-6 py-4">
                             <h1 class="font-bold text-gray-800">{{ $user->username }}</h1>
@@ -51,15 +51,17 @@
                             {{ $user->is_creator ? 'Si' : 'No' }}
                         </td>
                         <th scope="col" class="px-6 py-3">
-                            @if ($user->profile->is_original == 2)
-                                <button wire:click="makeOriginal({{ $user->id }})"
-                                    class="bg-rose-600 text-white font-bold px-3 py-2 rounded-lg">
-                                    Aceptar
-                                </button>
-                            @elseif($user->profile->is_original == 1)
-                                <div class="flex items-center justify-center">
-                                    <i class="fa-solid fa-star text-yellow-300 text-xl"></i>
-                                </div>
+                            @if ($user->profile)
+                                @if ($user->profile->is_original == 2)
+                                    <button wire:click="makeOriginal({{ $user->id }})"
+                                        class="bg-rose-600 text-white font-bold px-3 py-2 rounded-lg">
+                                        Aceptar
+                                    </button>
+                                @elseif($user->profile->is_original == 1)
+                                    <div class="flex items-center justify-center">
+                                        <i class="fa-solid fa-star text-yellow-300 text-xl"></i>
+                                    </div>
+                                @endif
                             @endif
                         </th>
                         <td class="px-6 py-4">
