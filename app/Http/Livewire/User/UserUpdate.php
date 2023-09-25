@@ -40,6 +40,7 @@ class UserUpdate extends Component
         //'profile.facebook.required' => 'El facebook es requerido',
         //'profile.instagram.required' => 'El instagram es requerido',
         'img.image' => 'El archivo debe ser una imagen',
+        'img.max' => 'El archivo no debe pesar más de 3MB',
     ];
 
     public function mount()

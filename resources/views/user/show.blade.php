@@ -11,7 +11,8 @@
                             src="{{ $user->profile_photo_url }}" alt="" loading="lazy">
                     </div>
                     <div class="my-5">
-                        <h1 class="text-white text-center font-bold text-xl">{{ $user->profile->name . ' ' . $user->profile->lastname }}</h1>
+                        <h1 class="text-white text-center font-bold text-xl">
+                            {{ $user->profile->name . ' ' . $user->profile->lastname }}</h1>
                     </div>
                     <div class="flex justify-center mt-5">
                         <div class="w-full">
@@ -57,43 +58,53 @@
                             Comics Destacados
                         </h1>
                         <div>
-                            <ul class="mt-5">
-                                @if ($user->profile->is_original == true)
-                                    @if ($user->comics_created->first()->status == 3)
-                                        <div>
-                                            <div class="flex justify-center items-center">
-                                                <img src="{{ Storage::url($user->comics_created->first()->img) }}"
-                                                    class="w-full h-64 object-cover object-center rounded-lg"
-                                                    loading="lazy">
-                                            </div>
-                                            <div class="mt-2">
-                                                <h1
-                                                    class="text-white font-bold font-josefin text-lg text-center uppercase">
-                                                    {{ $user->comics_created->first()->title }}
-                                                </h1>
-                                            </div>
+                            @if ($user->comics_created->count() > 0)
+                                <ul class="mt-5">
+                                    @if ($user->profile->is_original == true)
+                                        @if ($user->comics_created->first()->status == 3)
+                                            <div>
+                                                <div class="flex justify-center items-center">
+                                                    <img src="{{ Storage::url($user->comics_created->first()->img) }}"
+                                                        class="w-full h-64 object-cover object-center rounded-lg"
+                                                        loading="lazy">
+                                                </div>
+                                                <div class="mt-2">
+                                                    <h1
+                                                        class="text-white font-bold font-josefin text-lg text-center uppercase">
+                                                        {{ $user->comics_created->first()->title }}
+                                                    </h1>
+                                                </div>
 
-                                        </div>
-                                    @endif
-                                @else
-                                    @if ($user->comics_created->first()->status == 3)
-                                        <div>
-                                            <div class="flex justify-center items-center">
-                                                <img src="{{ Storage::url($user->comics_created->first()->img) }}"
-                                                    class="w-44 h-64 object-cover object-center rounded-lg"
-                                                    loading="lazy">
                                             </div>
-                                            <div class="mt-2">
-                                                <h1
-                                                    class="text-white font-bold font-josefin text-lg text-center uppercase">
-                                                    {{ $user->comics_created->first()->title }}
-                                                </h1>
+                                        @endif
+                                    @else
+                                        @if ($user->comics_created->first()->status == 3)
+                                            <div>
+                                                <div class="flex justify-center items-center">
+                                                    <img src="{{ Storage::url($user->comics_created->first()->img) }}"
+                                                        class="w-44 h-64 object-cover object-center rounded-lg"
+                                                        loading="lazy">
+                                                </div>
+                                                <div class="mt-2">
+                                                    <h1
+                                                        class="text-white font-bold font-josefin text-lg text-center uppercase">
+                                                        {{ $user->comics_created->first()->title }}
+                                                    </h1>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     @endif
-                                @endif
 
-                            </ul>
+                                </ul>
+                            @else
+                                <div class="flex justify-center items-center py-10">
+                                    <a href="{{ route('creator.comics.index') }}">
+                                        <button class="p-3 bg-gray-700 text-white rounded-full font-bold w-full mt-4">
+                                            Crear tu primer comic
+                                        </button>
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </article>
                 </div>
