@@ -29,7 +29,7 @@ class ComicIndex extends Component
             ->where('title', 'LIKE', '%' . $this->search . '%')
             ->where('category_id', 'LIKE', '%' . $this->cate . '%')
             ->whereHas('profile', function ($query) {
-                $query->where('is_original', 3);
+                $query->where('is_original', 2, 3);
             })
             ->latest('id')->paginate(10);
     }

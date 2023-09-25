@@ -73,4 +73,18 @@ class UserController extends Controller
 
         return redirect()->route('users.show', $user);
     }
+
+    public function premium(User $user)
+    {
+        $user->user_enrolled()->attach(auth()->user()->id);
+
+        return redirect()->route('users.show', $user);
+    }
+
+    public function desubscription(User $user)
+    {
+        $user->user_enrolled()->detach(auth()->user()->id);
+
+        return redirect()->route('users.show', $user);
+    }
 }

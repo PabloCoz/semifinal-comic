@@ -48,6 +48,10 @@ Route::get('/comics/{comic}', ComicStatus::class)->middleware('auth')->name('com
 
 Route::post('users/{user}/original', [UserController::class, 'original'])->middleware('auth')->name('users.original');
 
+Route::post('users/{user}/premium', [UserController::class, 'premium'])->middleware('auth')->name('users.premium');
+
+Route::post('user/{user}/desubscription', [UserController::class, 'desubscription'])->middleware('auth')->name('users.desubscription');
+
 Route::get('/my-comics', ComicUser::class)->middleware('auth')->name('comics.user');
 
 Route::get('faq', [QuestionController::class, 'index'])->name('faq.index');

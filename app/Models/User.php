@@ -109,8 +109,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Chapter::class);
     }
 
-    public function client()
+    public function user_enrolled()
     {
-        return $this->hasOne(Client::class);
+        return $this->belongsToMany(User::class, 'user_enrolled', 'creator_user_id', 'subs_user_id')->withPivot('is_active');
     }
 }
