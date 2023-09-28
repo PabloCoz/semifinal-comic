@@ -18,7 +18,7 @@
                         <div class="w-full">
                             @auth
                                 @if ($user->id != auth()->user()->id)
-                                    @can('premiun', $user, auth()->user())
+                                    @can('premiun', $user)
                                         <form action="{{ route('users.desubscription', $user) }}" method="POST">
                                             @csrf
                                             <button type="submit"

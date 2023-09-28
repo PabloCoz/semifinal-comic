@@ -77,7 +77,7 @@
                 <h1 class="text-white font-josefin my-4 text-center text-xl">No hay publicaciones...</h1>
             </div>
         @endforelse
-       {{--  @can('premiun', $user, auth()->user())
+        @can('premiun', $user, auth()->user())
         @else
             <div
                 class="absolute top-0 left-0 w-full h-full md:h-full object-center object-cover md:object-center z-10 backdrop-blur-3xl p-4 rounded-lg">
@@ -95,6 +95,6 @@
                     </form>
                 </div>
             </div>
-        @endcan --}}
+        @endcan
     </div>
 </div>

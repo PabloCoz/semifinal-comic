@@ -6,8 +6,10 @@ namespace App\Providers;
 
 use App\Models\Chapter;
 use App\Models\Comic;
+use App\Models\User;
 use App\Policies\ChapterPolicy;
 use App\Policies\ComicPolicy;
+use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -21,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         Comic::class => ComicPolicy::class,
         Chapter::class => ChapterPolicy::class,
+        User::class => UserPolicy::class,
         
     ];
 
