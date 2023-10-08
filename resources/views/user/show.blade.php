@@ -23,14 +23,14 @@
                                             @csrf
                                             <button type="submit"
                                                 class="p-3 bg-red-400 text-white rounded-full font-bold w-full">
-                                                Cancelar suscripción
+                                                Dejar de seguir
                                             </button>
                                         </form>
                                     @else
                                         <form action="{{ route('users.premium', $user) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="p-3 bg-sky-400 rounded-full font-bold w-full">
-                                                Suscribirse
+                                                Seguir
                                             </button>
                                         </form>
                                     @endcan

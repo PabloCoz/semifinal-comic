@@ -83,14 +83,14 @@
                 class="absolute top-0 left-0 w-full h-full md:h-full object-center object-cover md:object-center z-10 backdrop-blur-3xl p-4 rounded-lg">
                 <div class="flex items-center justify-center">
                     <h1 class="font-bold text-white text-center text-2xl font-josefin">
-                        Suscribete para ver más contenido de tu creador favorito
+                        Empieza a seguir a {{ $user->username }} para ver sus publicaciones
                     </h1>
                 </div>
                 <div class="flex items-center justify-center mt-5">
                     <form action="{{ route('users.premium', $user) }}" method="POST">
                         @csrf
                         <button type="submit" class="p-3 bg-sky-400 rounded-full font-bold w-full">
-                            Suscribirse
+                            Seguir
                         </button>
                     </form>
                 </div>

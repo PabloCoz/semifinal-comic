@@ -37,79 +37,53 @@
 </div>
 
 
-
-<h1 class="text-2xl font-bold mt-8 mb-2">Portada principal</h1>
-
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-    <figure>
-        @isset($comic->image)
-            <img id="picture" class="w-full h-64 object-cover object-center" src="{{ Storage::url($comic->image->url) }}"
-                alt="">
-        @else
-            <img id="picture" class="w-full h-64 object-cover object-center" src="" alt="">
-        @endisset
-    </figure>
-
-    <div>
-        {!! Form::file('file', ['class' => 'rounded w-full ', 'id' => 'file', 'accept' => 'image/*']) !!}
-
-        <p class="font-bold text-blue-600 italic text-sm">
-            Todas las imágenes deben tener un tamaño de 1920px X 1080px (horizontal)
-        </p>
-
-        @error('file')
-            <strong class="text-xs text-red-500">{{ $message }}</strong>
-        @enderror
-    </div>
-</div>
-
 @if (auth()->user()->profile->is_original == 1)
-    <h1 class="text-2xl font-bold mt-8 mb-2">Imagen de portada horizontal</h1>
+    <h1 class="text-2xl font-bold mt-8 mb-2">Portada principal</h1>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <figure>
-            @isset($comic->img)
-                <img id="portada" class="w-full h-64 object-cover object-center" src="{{ Storage::url($comic->img) }}"
-                    alt="">
+            @isset($comic->image)
+                <img id="picture" class="w-full h-64 object-cover object-center"
+                    src="{{ Storage::url($comic->image->url) }}" alt="">
             @else
-                <img id="portada" class="w-full h-64 object-cover object-center" src="" alt="">
+                <img id="picture" class="w-full h-64 object-cover object-center" src="" alt="">
             @endisset
         </figure>
 
         <div>
-            {!! Form::label('img', 'Selecciona una imagen') !!}
-            {!! Form::file('img', ['class' => 'rounded w-full ', 'id' => 'img', 'accept' => 'image/*']) !!}
+            {!! Form::file('file', ['class' => 'rounded w-full ', 'id' => 'file', 'accept' => 'image/*']) !!}
 
             <p class="font-bold text-blue-600 italic text-sm">
                 Todas las imágenes deben tener un tamaño de 1920px X 1080px (horizontal)
             </p>
 
-            @error('img')
+            @error('file')
                 <strong class="text-xs text-red-500">{{ $message }}</strong>
             @enderror
         </div>
-    </div>
-@else
-    <h1 class="text-2xl font-bold mt-8 mb-2">Imagen de portada horizontal</h1>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <figure>
-            @isset($comic->img)
-                <img id="portada" class="w-48 h-64 object-cover object-center" src="{{ Storage::url($comic->img) }}"
-                    alt="">
-            @else
-                <img id="portada" class="w-48 h-64 object-cover object-center" src="" alt="">
-            @endisset
-        </figure>
-
-        <div>
-            {!! Form::file('img', ['class' => 'rounded w-full ', 'id' => 'img', 'accept' => 'image/*']) !!}
-
-            <p class="font-bold text-red-600 italic text-sm">
-                Todas las imágenes deben tener un tamaño de 192px X 256px
-            </p>
-
-            @error('img')
-                <strong class="text-xs text-red-500">{{ $message }}</strong>
-            @enderror
-        </div>
-    </div>
 @endif
+
+
+<h1 class="text-2xl font-bold mt-8 mb-2">Imagen de portada</h1>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <figure>
+        @isset($comic->img)
+            <img id="portada" class="w-52 h-80 object-contain object-center" src="{{ Storage::url($comic->img) }}"
+                alt="">
+        @else
+            <img id="portada" class="w-52 h-80 object-contain object-center" src="" alt="">
+        @endisset
+    </figure>
+
+    <div>
+        {!! Form::file('img', ['class' => 'rounded w-full ', 'id' => 'img', 'accept' => 'image/*']) !!}
+
+        <p class="font-bold text-red-600 italic text-sm">
+            Todas las imágenes deben tener un tamaño de 192px X 256px
+        </p>
+
+        @error('img')
+            <strong class="text-xs text-red-500">{{ $message }}</strong>
+        @enderror
+    </div>
+</div>

@@ -2,13 +2,13 @@
     <div class="bg-teal-500 py-8">
         <div class="max-w-5xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-4">
-                <div class="md:col-span-3 lg:col-span-4">
-                    <figure>
-                        <img src="{{ Storage::url($comic->image->url) }}"
-                            class="object-cover object-center h-96 w-full rounded-md" loading="lazy" alt="">
+                <div class="md:col-start-1 md:col-end-3 lg:col-start-2 lg:col-end-4">
+                    <figure class="">
+                        <img src="{{ Storage::url($comic->img) }}"
+                            class="object-cover object-center h-80 w-full md:w-56 rounded-md" loading="lazy">
                     </figure>
                 </div>
-                <div class="md:col-span-2 lg:col-span-3 flex items-center justify-center">
+                <div class="md:col-span-2 md:col-start-4 md:col-end-5  lg:col-span-3 lg:col-start-5 flex items-center justify-center">
                     <div class="">
                         <div>
                             <h1 class="text-3xl font-extrabold font-josefin text-white uppercase text-center">
@@ -103,6 +103,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+
+    <div>
+        <x-footer />
     </div>
 
     <script>

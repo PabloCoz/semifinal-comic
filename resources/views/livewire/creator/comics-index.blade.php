@@ -41,9 +41,9 @@
                                         <td class="px-6 py-4">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
-                                                    @if ($comic->image)
-                                                        <img class="h-10 w-10 rounded-full"
-                                                            src="{{ Storage::url($comic->image->url) }}" alt="">
+                                                    @if ($comic->img)
+                                                        <img class="h-10 w-10 rounded-full object-cover"
+                                                            src="{{ Storage::url($comic->img) }}" alt="">
                                                     @else
                                                         <img class="h-10 w-10 rounded-full"
                                                             src="{{ asset('img/no-image.png') }}" alt="">

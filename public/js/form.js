@@ -1,5 +1,9 @@
 document.getElementById("title").addEventListener('keyup', slugChange);
 
+if (document.getElementById("file")) {
+    document.getElementById("file").addEventListener('change', cambiarImagen);
+}
+
 function slugChange() {
 
     title = document.getElementById("title").value;
@@ -18,7 +22,6 @@ function slug(str) {
 
 
 //Cambiar imagen
-document.getElementById("file").addEventListener('change', cambiarImagen);
 
 function cambiarImagen(event) {
     var file = event.target.files[0];

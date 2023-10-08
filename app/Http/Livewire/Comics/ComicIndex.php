@@ -27,9 +27,12 @@ class ComicIndex extends Component
     {
         return Comic::where('status', Comic::PUBLICADO)
             ->where('title', 'LIKE', '%' . $this->search . '%')
-            ->where('category_id', 'LIKE', '%' . $this->cate . '%')
+            ->when($this->cate, function ($query) {
+                $query->where('category_id', $this->cate);
+            })
             ->whereHas('profile', function ($query) {
-                $query->where('is_original', 2, 3);
+                $query->where('is_original', 3);
+                $query->orWhere('is_original', 2);
             })
             ->latest('id')->paginate(10);
     }
@@ -38,7 +41,9 @@ class ComicIndex extends Component
     {
         return Comic::where('status', Comic::PUBLICADO)
             ->where('title', 'LIKE', '%' . $this->search . '%')
-            ->where('category_id', 'LIKE', '%' . $this->cate . '%')
+            ->when($this->cate, function ($query) {
+                $query->where('category_id', $this->cate);
+            })
             ->whereHas('profile', function ($query) {
                 $query->where('is_original', 1);
             })
@@ -47,6 +52,12 @@ class ComicIndex extends Component
 
     public function clearPage()
     {
+        $this->reset('search');
+    }
+
+    public function resetFilters()
+    {
+        $this->reset('cate');
         $this->reset('search');
     }
 }

@@ -14,6 +14,8 @@ class ImageChapter extends Component
 
     public $chapter, $ident, $img = [], $image, $ide;
 
+    public $itm = [];
+
     public function mount(Chapter $chapter)
     {
         $this->chapter = $chapter;
@@ -87,16 +89,30 @@ class ImageChapter extends Component
         $this->chapter = Chapter::find($this->chapter->id);
     }
 
-    public function deleteImage($image)
+    public function toggleSelection($value)
     {
-        $id = Image::find($image);
+        // Desmarca el checkbox si ya está seleccionado
+        if (in_array($value, $this->itm)) {
+            $key = array_search($value, $this->itm);
+            unset($this->itm[$key]);
+            $this->itm = array_values($this->itm);
+        } else {
+            $this->itm[] = $value;
+        }
+    }
 
-        Storage::delete($id->url);
-        $id->delete();
+    public function deleteImage()
+    {
+        foreach ($this->itm as $value) {
+            $image = Image::find($value);
+            Storage::delete($image->url);
+            $image->delete();
+        }
+
         foreach ($this->chapter->images as $key => $value) {
-            if ($value['position'] > $id['position']) {
-                $value->update(['position' => $value['position'] - 1]);
-            }
+            $value->update([
+                'position' => $key + 1,
+            ]);
         }
         $this->chapter = Chapter::find($this->chapter->id);
     }

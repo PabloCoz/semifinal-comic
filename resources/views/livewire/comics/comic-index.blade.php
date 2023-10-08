@@ -12,7 +12,7 @@
         <div>
             <h1 class="font-josefin text-2xl uppercase text-rosecomic font-bold text-center my-4">comics sugeridos
             </h1>
-            <div class="grid grid-cols-1 lg:grid-cols-8 gap-2">
+            <div class="grid grid-cols-1 lg:grid-cols-8 gap-2 lg:mx-3">
                 <div class="lg:col-span-2">
                     <div class="mx-1 md:mx-0">
                         <input type="search" class="w-full rounded-lg" placeholder="Buscar..." wire:model="search">
@@ -27,8 +27,8 @@
                         <ul class="mx-4 text-white" x-show="cat">
                             @foreach ($this->categories as $category)
                                 <li>
-                                    <label for="{{ $category->id }}">
-                                        <input type="checkbox" wire:model="cate.{{ $category->id }}"
+                                    <label for="{{ $category->id }}" class="capitalize">
+                                        <input type="checkbox" wire:model.pevent="cate.{{ $category->id }}"
                                             id="{{ $category->id }}"
                                             class="text-rose-600 bg-gray-100 rounded focus:ring-0">
                                         {{ $category->name }}
@@ -36,6 +36,13 @@
                                 </li>
                             @endforeach
                         </ul>
+
+                        <div class="mt-4">
+                            <button wire:click="resetFilters"
+                                class="w-full p-2 rounded-lg bg-rosecomic text-white font-bold font-josefin">
+                                Limpiar Filtros
+                            </button>
+                        </div>
                     </div>
 
                 </div>

@@ -2,13 +2,12 @@
 <div class="mx-1 md:mx-0">
     <a href="{{ route('comics.show', $comic) }}">
         <div class="flex justify-center items-center relative">
-            <figure class="md:rounded-md shadow-md overflow-hidden">
-                <img class="h-72 object-center object-cover w-full" src="{{ Storage::url($comic->image->url) }}"
-                    alt="" loading="lazy">
+            <figure class="shadow-md overflow-hidden">
+                <img class="h-72 object-center object-cover w-full" src="{{ Storage::url($comic->img) }}" loading="lazy">
             </figure>
             <div class="absolute top-1 left-2 px-1 py-0.5 rounded-lg"
                 style="background-color: {{ $comic->category->color }};
-                        color: {{ $comic->category->text_color }}">
+                        color: {{ $comic->category->color_text }}">
                 <h1 class="font-josefin font-bold">{{ $comic->category->name }}
                 </h1>
 
