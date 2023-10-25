@@ -75,20 +75,22 @@
                                 <ul class="mt-5">
                                     @if ($user->profile->is_original == true)
                                         @if ($user->comics_created->first()->status == 3)
-                                            <div>
-                                                <div class="flex justify-center items-center">
-                                                    <img src="{{ Storage::url($user->comics_created->first()->img) }}"
-                                                        class="w-full h-64 object-cover object-center rounded-lg"
-                                                        loading="lazy">
-                                                </div>
-                                                <div class="mt-2">
-                                                    <h1
-                                                        class="text-white font-bold font-josefin text-lg text-center uppercase">
-                                                        {{ $user->comics_created->first()->title }}
-                                                    </h1>
-                                                </div>
+                                            <a href="{{ route('comics.show', $user->comics_created->first()) }}">
+                                                <div>
+                                                    <div class="flex justify-center items-center">
+                                                        <img src="{{ Storage::url($user->comics_created->first()->img) }}"
+                                                            class="w-full h-64 object-cover object-center rounded-lg"
+                                                            loading="lazy">
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <h1
+                                                            class="text-white font-bold font-josefin text-lg text-center uppercase">
+                                                            {{ $user->comics_created->first()->title }}
+                                                        </h1>
+                                                    </div>
 
-                                            </div>
+                                                </div>
+                                            </a>
                                         @endif
                                     @else
                                         @if ($user->comics_created->first()->status == 3)

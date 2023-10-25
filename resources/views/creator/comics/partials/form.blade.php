@@ -61,6 +61,7 @@
                 <strong class="text-xs text-red-500">{{ $message }}</strong>
             @enderror
         </div>
+    </div>
 @endif
 
 
