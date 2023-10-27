@@ -152,15 +152,13 @@
                                             @endcan
                                             @can('Eliminar Comic (creador)')
                                                 <div>
-                                                    <a href="#" class="text-red-600 hover:text-red-900"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-comic-{{ $comic->id }}').submit();">
-                                                        Eliminar
-                                                    </a>
-                                                    <form id="delete-comic-{{ $comic->id }}"
+                                                    <form id="delete-comic-{{ $comic->id }}" class="form-delete"
                                                         action="{{ route('creator.comics.destroy', $comic) }}"
                                                         method="POST" class="hidden">
                                                         @csrf
                                                         @method('DELETE')
+                                                        <button type="submit"
+                                                            class="text-red-600 hover:text-red-900">Eliminar</button>
                                                     </form>
                                                 </div>
                                             @endcan
@@ -183,5 +181,25 @@
                 {{ $comics->links() }}
             </div>
         </div>
-
+        @push('sweet')
+            <script>
+                // Sweet alert
+                $('.form-delete').submit(function(e) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: '¿Estas seguro?',
+                        text: "¡No podrás revertir esto!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: '¡Si, bórralo!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.submit();
+                        }
+                    })
+                });
+            </script>
+        @endpush
     </div>

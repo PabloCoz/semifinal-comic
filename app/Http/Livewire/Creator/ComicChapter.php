@@ -21,6 +21,8 @@ class ComicChapter extends Component
         'chapter.name' => 'required',
     ];
 
+    protected $listeners = ['delete' => 'delete'];
+
     public function mount(Comic $comic)
     {
         $this->comic = $comic;
@@ -77,12 +79,12 @@ class ComicChapter extends Component
 
     public function delete($chapter)
     {
-        Chapter::destroy($chapter['id']);
+        Chapter::destroy($chapter);
         foreach ($this->chapters as $key => $value) {
-            if ($value['position'] > $chapter['position']) {
-                $value->update(['position' => $value['position'] - 1]);
+            if ($value->position > $chapter->position) {
+                $value->update(['position' => $value->position - 1]);
             }
         }
-        $this->comic = Comic::find($this->comic['id']);
+        $this->comic = Comic::find($this->comic->id);
     }
 }
