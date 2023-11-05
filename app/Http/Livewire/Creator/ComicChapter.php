@@ -77,14 +77,16 @@ class ComicChapter extends Component
         $this->comic = Comic::find($this->comic['id']);
     }
 
-    public function delete($chapter)
+    public function delete($id)
     {
-        Chapter::destroy($chapter);
-        foreach ($this->chapters as $key => $value) {
-            if ($value->position > $chapter->position) {
-                $value->update(['position' => $value->position - 1]);
-            }
+        $chapter = Chapter::find($id);
+        $chapter->delete();
+        $chapters = $this->comic->chapters()->orderBy('position', 'ASC')->get();
+        $position = 1;
+        foreach ($chapters as $chapter) {
+            $chapter->update(['position' => $position]);
+            $position++;
         }
-        $this->comic = Comic::find($this->comic->id);
+        $this->comic = Comic::find($this->comic['id']);
     }
 }

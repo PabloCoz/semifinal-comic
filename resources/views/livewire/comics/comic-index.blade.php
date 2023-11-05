@@ -24,21 +24,18 @@
                             <i class="fa-solid fa-caret-down"></i>
 
                         </button>
-                        <ul class="mx-4 text-white" x-show="cat">
+                        <ul class="text-white" x-show="cat">
                             @foreach ($this->categories as $category)
-                                <li>
-                                    <label for="{{ $category->id }}" class="capitalize">
-                                        <input type="checkbox" wire:model.pevent="cate.{{ $category->id }}"
-                                            id="{{ $category->id }}"
-                                            class="text-rose-600 bg-gray-100 rounded focus:ring-0">
-                                        {{ $category->name }}
-                                    </label>
-                                </li>
+                                <a wire:click="$set('cate', {{ $category->id }})"
+                                    class="transition-colors my-2  duration-200 block px-4 py-2 capitalize text-normal rounded hover:bg-blue-300 cursor-pointer
+                                    @if ($cate == $category->id) bg-rosecomic @else bg-gray-800 @endif">
+                                    {{ $category->name }}
+                                </a>
                             @endforeach
                         </ul>
 
                         <div class="mt-4">
-                            <button wire:click="resetFilters"
+                            <button wire:click="resetFilters" wire:click="$emit('launchEvents')"
                                 class="w-full p-2 rounded-lg bg-rosecomic text-white font-bold font-josefin">
                                 Limpiar Filtros
                             </button>
@@ -56,6 +53,9 @@
                             </div>
                         @endforelse
                     </div>
+                </div>
+                <div>
+                    {{ $comics->links() }}
                 </div>
             </div>
         </div>

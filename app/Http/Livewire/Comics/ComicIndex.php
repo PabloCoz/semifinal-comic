@@ -11,11 +11,19 @@ class ComicIndex extends Component
     public $search;
     public $cate;
 
+    protected $listeners = ['launchEvents'];
+
     public function render()
     {
         $comics = $this->notOriginals();
         $originals = $this->originals();
+        $this->emit('glider');
         return view('livewire.comics.comic-index', compact('comics', 'originals'));
+    }
+
+    public function launchEvents()
+    {
+        $this->emit('glider');
     }
 
     public function getCategoriesProperty()
@@ -28,6 +36,7 @@ class ComicIndex extends Component
         return Comic::where('status', Comic::PUBLICADO)
             ->where('title', 'LIKE', '%' . $this->search . '%')
             ->when($this->cate, function ($query) {
+                //if ($this->cate) {
                 $query->where('category_id', $this->cate);
             })
             ->whereHas('profile', function ($query) {
@@ -59,5 +68,6 @@ class ComicIndex extends Component
     {
         $this->reset('cate');
         $this->reset('search');
+        $this->emit('glider');
     }
 }
