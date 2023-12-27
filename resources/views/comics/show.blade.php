@@ -1,13 +1,14 @@
 <x-app-layout>
-    <div class="bg-teal-500 py-8">
+    <div class=py-8" style="background-color: {{ $comic->category->color }}">
         <div class="max-w-5xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-4 py-10">
                 <div
                     class="md:col-start-1 md:col-end-3 @if (!$comic->image) lg:col-start-2 lg:col-end-4 @else lg:col-start-1 lg:col-end-5 @endif">
                     <figure class="">
                         @if (!$comic->image)
                             <img src="{{ Storage::url($comic->img) }}"
-                                class="object-cover object-center h-80 w-full md:w-56 rounded-md" loading="lazy">
+                                class="object-cover object-center h-80 w-full md:h-96 md:w-wull rounded-md"
+                                loading="lazy">
                         @else
                             <img src="{{ Storage::url($comic->image->url) }}"
                                 class="object-cover object-center h-80 w-full md:w-full rounded-md" loading="lazy">
@@ -18,9 +19,11 @@
                     class="md:col-span-2 md:col-start-4 md:col-end-5  lg:col-span-3 lg:col-start-5 flex items-center justify-center">
                     <div class="">
                         <div>
-                            <h1 class="text-3xl font-extrabold font-josefin text-white uppercase text-center">
+                            <h1 class="text-3xl font-extrabold font-josefin uppercase text-center"
+                                style="color: {{ $comic->category->color_text }} ">
                                 {{ $comic->title }}</h1>
-                            <p class="md:text-xl font-bold font-josefin text-white mt-3 mx-3 text-center">
+                            <p
+                                class="md:text-xl font-bold font-josefin mt-3 mx-3 text-center"style="color: {{ $comic->category->color_text }} ">
                                 Creado por: <a href="{{ route('users.show', $comic->user) }}"
                                     class="uppercase hover:underline">{{ $comic->user->username }}</a>
                             </p>
@@ -31,7 +34,7 @@
                                     <i class="fa-solid fa-users"></i>
                                 </button>
 
-                                <h1 class="ml-1 text-white font-bold font-josefin">{{ $comic->users->count() }}</h1>
+                                <h1 class="ml-1 font-bold font-josefin" style="color: {{ $comic->category->color_text }} ">{{ $comic->users->count() }}</h1>
                             </section>
 
                             <section class="flex items-center">
@@ -39,7 +42,7 @@
                                     <i class="fa-regular fa-star"></i>
                                 </button>
 
-                                <h1 class="ml-1 text-white font-bold font-josefin">
+                                <h1 class="ml-1 font-bold font-josefin"  style="color: {{ $comic->category->color_text }} ">
                                     {{ round($comic->ratings->avg('value'), 2) }}
                                 </h1>
                             </section>
@@ -48,7 +51,7 @@
                                     <i class="fa-regular fa-eye"></i>
                                 </button>
 
-                                <h1 class="ml-1 text-white font-bold font-josefin">{{ $comic->users->count() }}</h1>
+                                <h1 class="ml-1 font-bold font-josefin"  style="color: {{ $comic->category->color_text }} ">{{ $comic->users->count() }}</h1>
                             </section>
 
                         </div>

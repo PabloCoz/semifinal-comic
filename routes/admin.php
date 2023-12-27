@@ -24,6 +24,7 @@ Route::resource('users', UserController::class)->only('index', 'edit', 'update')
 
 Route::group(['prefix' => 'comics'], function () {
     Route::get('/', [ComicController::class, 'index'])->name('admin.comics.index');
+    Route::get('/revision', [ComicController::class, 'revision'])->name('admin.comics.revision');
     Route::get('/{comic}', [ComicController::class, 'show'])->name('admin.comics.show');
     Route::post('/{comic}/approved', [ComicController::class, 'approved'])->name('admin.comics.approved');
 });

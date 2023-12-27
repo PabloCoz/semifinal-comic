@@ -2,7 +2,7 @@
     <header class="w-full relative h-96">
         <img class="w-full h-full object-cover z-10 brightness-50" src="{{ Storage::url($user->profile->front_page) }}">
     </header>
-    <section class="bg-black">
+    <section class="bg-black pb-4">
         <div class="max-w-5xl mx-auto pb-2">
             <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-5">
                 <div class="col-span-1 md:col-span-2 -mt-12 relative z-10">
@@ -144,4 +144,5 @@
             </div>
         </div>
     </section>
+    <x-footer />
 </x-app-layout>

@@ -10,8 +10,8 @@ class ComicController extends Controller
 {
     public function index()
     {
-        $comics = Comic::where('status', Comic::REVISIÓN)->paginate(10);
-        return view('admin.comics.index', compact('comics'));
+        
+        return view('admin.comics.index');
     }
 
     public function show(Comic $comic)
@@ -25,5 +25,10 @@ class ComicController extends Controller
         $comic->status = Comic::PUBLICADO;
         $comic->save();
         return redirect()->route('admin.comics.index');
+    }
+
+    public function revision(){
+        $comics = Comic::where('status', Comic::REVISIÓN)->paginate(10);
+        return view('admin.comics.revision', compact('comics'));
     }
 }

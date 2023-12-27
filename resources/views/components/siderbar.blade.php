@@ -12,21 +12,21 @@
         <ul class="space-y-2 font-medium">
             <li>
                 <a href="{{ route('admin.home') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.home') bg-gray-300 @endif">
                     <i class="fa-solid fa-chart-pie"></i>
                     <span class="ml-3">Dashboard</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.users.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.users.index') bg-gray-300 @endif">
                     <i class="fa-solid fa-users"></i>
                     <span class="flex-1 ml-3">Usuarios</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.roles.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.roles.index') bg-gray-300 @endif">
                     <i class="fa-solid fa-lock-open"></i>
                     <span class="flex-1 ml-3">Roles y Permisos</span>
 
@@ -34,35 +34,42 @@
             </li>
             <li>
                 <a href="{{ route('admin.comics.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.comics.index') bg-gray-300 @endif">
                     <i class="fa-regular fa-folder"></i>
                     <span class="flex-1 ml-3">Comics</span>
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.comics.revision') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.comics.revision') bg-gray-300 @endif">
+                    <i class="fa-regular fa-folder"></i>
+                    <span class="flex-1 ml-3">Comics en revisión</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.sliders.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.sliders.index') bg-gray-300 @endif">
                     <i class="fa-solid fa-users-viewfinder"></i>
                     <span class="flex-1 ml-3">Administracion de vistas</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.categories.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.categories.index') bg-gray-300 @endif">
                     <i class="fa-solid fa-layer-group"></i>
                     <span class="flex-1 ml-3">Categorias</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.plans.index') }}"
-                    class="flex w-full items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    class="flex w-full items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.plans.index') bg-gray-300 @endif">
                     <i class="fa-solid fa-table-list"></i>
                     <span class="flex-1 ml-3">Planes de suscripcion</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.questions.index') }}"
-                    class="flex w-full items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200">
+                    class="flex w-full items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 @routeIs('admin.questions.index') bg-gray-300 @endif">
                     <i class="fa-solid fa-question"></i>
                     <span class="flex-1 ml-3">FAQ</span>
                 </a>
