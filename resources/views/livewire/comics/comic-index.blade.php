@@ -1,6 +1,5 @@
 <section class="bg-black py-4">
     <div class="max-w-6xl mx-auto">
-        <hr class="my-4 border-2 border-dashed">
         <div>
             <h1 class="font-josefin text-2xl uppercase text-skcomic font-bold text-center my-8">originales de baps
                 comics

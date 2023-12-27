@@ -89,12 +89,12 @@
                 <div class="flex items-center justify-center mt-5">
                     <form action="{{ route('users.premium', $user) }}" method="POST">
                         @csrf
-                        <button type="submit" class="p-3 bg-sky-400 rounded-full font-bold w-full">
+                        <button type="submit" class="p-3 bg-white border-4 border-rosecomic hover:bg-rosecomic rounded-full font-bold w-full">
                             Seguir
                         </button>
                     </form>
                 </div>
             </div>
-        @endcan
+                    @endcan
     </div>
 </div>

@@ -26,7 +26,7 @@
                     </div>
 
                     <div>
-                        <h1 class="font-josefin text-skcomic text-center font-bold uppercase">
+                        <h1 class="font-josefin text-skcomic text-center font-bold uppercase mt-3">
                             {{ $item->title }}</h1>
                         <p class="text-white font-semibold truncate text-sm">
                             {{ Str::limit($item->description, 80, '...') }}</p>

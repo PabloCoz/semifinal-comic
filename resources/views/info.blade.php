@@ -103,7 +103,8 @@
                 @auth
                     <a href="{{ route('register-creator') }}">
                         <button
-                            class="px-6 py-3 bg-gradient-to-r from-skcomic to-rosecomic rounded-full uppercase text-lg italic font-extrabold tracking-wider">
+                            class="px-6 py-3 bg-gradient-to-r from-skcomic to-rosecomic hover:from-white hover:to-white hover:text-black
+                              rounded-full uppercase text-lg italic font-extrabold tracking-wider ">
                             REGISTRARSE
                         </button>
                     </a>

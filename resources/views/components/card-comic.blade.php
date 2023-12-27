@@ -23,7 +23,7 @@
         </div>
 
         <div>
-            <h1 class="font-josefin text-skcomic uppercase text-center font-bold">
+            <h1 class="font-josefin text-skcomic uppercase text-center font-bold mt-3">
                 {{ Str::limit($comic->title, 36, '...') }}</h1>
             <p class="text-sm text-white text-justify font-semibold">{{ Str::limit($comic->description, 50, '...') }}
             </p>

@@ -2,7 +2,7 @@
 
     @can('enrolled', $comic)
         @can('liked', $chapter)
-            <button wire:click="unlike" class="flex items-center">
+            <button wire:click="unlike" class="flex items-center" wire:loading.attr="disabled">
                 <h1 class="font-josefin mr-1 text-gray-600">{{ $chapter->likes->count() }}
                 </h1>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-rose-600">
@@ -12,7 +12,7 @@
 
             </button>
         @else
-            <button wire:click="like" class="flex items-center">
+            <button wire:click="like" class="flex items-center" wire:loading.attr="disabled">
                 <h1 class="font-josefin mr-1 text-gray-600">{{ $chapter->likes->count() }}
                 </h1>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

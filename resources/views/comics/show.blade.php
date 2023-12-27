@@ -91,8 +91,8 @@
 
     <div class="bg-gray-50">
         <div class="max-w-5xl mx-auto px-2 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-8 gap-3">
-                <div class="col-span-6 order-2 md:order-1">
+            <div class="grid grid-cols-1 md:grid-cols-8 gap-3 py-14">
+                <div class="col-span-5 order-2 md:order-1">
                     <div class="">
                         <h1 class="text-lg uppercase tracking-wider font-bold">Capítulos:</h1>
                         <div class="mx-1 md:mx-6">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="col-span-2 order-1 md:order-2">
+                <div class="col-span-3 order-1 md:order-2">
                     <h1 class="text-lg uppercase tracking-wider font-bold">Descripción:</h1>
                     <p class="text-gray-600 mt-2 text-justify" id="text"></p>
                     <button id="button" class="font-bold hover:underline">

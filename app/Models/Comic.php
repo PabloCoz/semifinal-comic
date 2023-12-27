@@ -13,6 +13,7 @@ class Comic extends Model
     const ELABORACIÓN = 1;
     const REVISIÓN = 2;
     const PUBLICADO = 3;
+    const STANDBY = 4;
 
     protected $guarded = ['id'];
 

@@ -18,6 +18,15 @@ class UserPolicy
 
     public function premiun($userCreator, $toUser): bool
     {
-        return $toUser->user_enrolled()->where('subs_user_id', auth()->id())->exists();
+        //return $toUser->user_enrolled()->where('subs_user_id', auth()->id())->exists();
+        if ($userCreator->id == $toUser->id) {
+            return true;
+        } else {
+            if($toUser->user_enrolled()->where('subs_user_id', auth()->id())->exists()){
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

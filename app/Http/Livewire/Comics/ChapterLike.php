@@ -25,6 +25,11 @@ class ChapterLike extends Component
 
     public function like()
     {
+        if ($this->chapter->likes()->where('user_id', auth()->user()->id)->exists()) {
+
+            return;
+        }
+
         $this->chapter->likes()->create([
             'value' => $this->liked,
             'user_id' => auth()->user()->id
@@ -34,6 +39,10 @@ class ChapterLike extends Component
 
     public function unlike()
     {
+        if (!$this->chapter->likes()->where('user_id', auth()->user()->id)->exists()) {
+
+            return;
+        }
         $this->chapter->likes()->where('user_id', auth()->user()->id)->delete();
         $this->emitSelf('render');
     }

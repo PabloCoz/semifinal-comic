@@ -32,7 +32,7 @@
                 @endif
             </div>
         </div>
-        <ul class="hidden lg:flex justify-center items-center space-x-3 mt-3">
+        <!-- <ul class="hidden lg:flex justify-center items-center space-x-3 mt-3">
             @foreach ($chapters as $chapter)
                 <li class="flex">
                     @if ($chapter->completed)
@@ -55,10 +55,13 @@
 
                 </li>
             @endforeach
-        </ul>
+        </ul> -->
 
         @livewire('comics.comic-comments', ['chapter' => $current] , key($current->id))
+
+        
     </div>
+    <x-footer />
     @push('up')
         <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
         <script>

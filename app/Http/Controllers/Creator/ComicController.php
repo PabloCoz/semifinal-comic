@@ -151,6 +151,12 @@ class ComicController extends Controller
                 ]);
             }
         }
+
+        if($comic->status == Comic::STANDBY){
+            $comic->status = Comic::PUBLICADO;
+            $comic->save();
+        }
+
         return redirect()->route('creator.comics.index')->with('success', 'Comic updated successfully');
     }
 

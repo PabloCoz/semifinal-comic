@@ -49,7 +49,11 @@ class PostList extends Component
 
     public function like($post)
     {
+
         $likePost = Post::find($post);
+        if ($likePost->likes()->where('user_id', auth()->id())->exists()) {
+            return;
+        }
         $likePost->likes()->create([
             'value' => 1,
             'user_id' => auth()->id(),
@@ -59,6 +63,9 @@ class PostList extends Component
 
     public function dislike($post)
     {
+        if (!Post::find($post)->likes()->where('user_id', auth()->id())->exists()) {
+            return;
+        }
         Like::where('likeable_id', $post)->where('user_id', auth()->id())->delete();
         $this->emitSelf('render');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\User;
 
+use App\Models\Comic;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -41,6 +42,9 @@ class Users extends Component
     {
         $user = User::find($user);
         $user->profile->is_original = 1;
+        foreach ($user->comics_created as $comic) {
+            $comic->update(['status' => Comic::STANDBY]);
+        }
         $user->profile->save();
         $this->emitSelf('render');
     }
