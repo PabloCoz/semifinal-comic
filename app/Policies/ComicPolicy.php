@@ -61,4 +61,13 @@ class ComicPolicy
         else
             return true;
     }
+
+    public function showInit(User $user, Comic $comic): bool
+    {
+        if ($comic->is_public == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

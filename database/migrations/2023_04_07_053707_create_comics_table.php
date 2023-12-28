@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('profile_id')->constrained()->onDelete('cascade');
             $table->boolean('is_public')->default(0);
+            $table->boolean('is_original')->default(0);
             $table->timestamps();
         });
     }

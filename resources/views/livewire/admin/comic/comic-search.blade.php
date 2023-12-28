@@ -77,9 +77,9 @@
         </div>
 
         <div
-            class="px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-8 gap-y-8">
+            class="px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8">
             @forelse ($comics as $comic)
-                <div class="mx-1 md:mx-0">
+                <div class="mx-1 md:mx-0 ">
                     <div class="flex justify-center items-center relative">
                         <figure class="shadow-md overflow-hidden">
                             <img class="h-72 object-center object-cover w-full" src="{{ Storage::url($comic->img) }}"
@@ -94,13 +94,29 @@
                         <div class="absolute top-1 right-2 bg-rose-600 text-white px-1 py-0.5 rounded-lg">
                             <div class="font-josefin font-bold flex items-center">
                                 <button>
-                                    <i class="fa-solid fa-eye"></i>
+                                    <i class="fa-solid fa-users"></i>
                                 </button>
                                 <p class="ml-0.5">{{ $comic->users->count() }}</p>
                             </div>
                         </div>
                     </div>
+                    <div
+                        class="bg-gray-200 my-2 w-full rounded-lg px-4 py-1 block lg:flex lg:justify-between lg:items-center">
+                        @can('showInit', $comic)
+                            <i class="fa-solid fa-eye-slash text-rosecomic cursor-pointer"
+                                wire:click="hidden({{ $comic->id }})"></i>
+                        @else
+                            <i class="fa-solid fa-eye text-gray-500 cursor-pointer"
+                                wire:click="visible({{ $comic->id }})"></i>
+                        @endcan
+                        @if ($comic->profile->is_original)
+                            <i class="fa-solid fa-person-circle-check text-lg text-yellow-300"></i>
+                            @else 
+                            <i class="fa-solid fa-person-circle text-lg text-gray-500"></i>
+                        @endif
 
+                        <i class="fa-solid fa-star"></i>
+                    </div>
                     <div>
                         <h1 class="font-josefin text-skcomic uppercase text-center font-bold mt-3">
                             {{ Str::limit($comic->title, 36, '...') }}</h1>

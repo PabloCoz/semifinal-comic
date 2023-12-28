@@ -35,7 +35,7 @@
                             </div>
                         </a>
                     @empty
-                        <div class="col-star-2 col-span-2">
+                        <div class="col-star-2 col-end-4 col-span-2">
                             <div class="px-2 py-6 col-span-2 md:col-span-3">
                                 <h1 class="text-xl font-bold text-center font-josefin text-white">No hay comics
                                     suscritos</h1>

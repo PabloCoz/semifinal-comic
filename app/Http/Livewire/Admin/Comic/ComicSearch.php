@@ -37,4 +37,16 @@ class ComicSearch extends Component
     {
         return Category::all();
     }
+
+    public function visible($id){
+        $comic = Comic::find($id);
+        $comic->is_public = 1;
+        $comic->save();
+    }
+
+    public function hidden($id){
+        $comic = Comic::find($id);
+        $comic->is_public = 0;
+        $comic->save();
+    }
 }
