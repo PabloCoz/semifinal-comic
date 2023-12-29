@@ -2,14 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Chapter;
 use App\Models\Comment;
 use App\Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ChapterPolicy
+class CommentPolicy
 {
-    use HandlesAuthorization;
     /**
      * Create a new policy instance.
      */
@@ -18,9 +15,9 @@ class ChapterPolicy
         //
     }
 
-    public function liked(User $user, Chapter $chapter)
+    public function likeComment(User $user, Comment $comment)
     {
-        foreach ($chapter->likes as $like) {
+        foreach ($comment->likes as $like) {
             if ($like->user_id == $user->id) {
                 return true;
             }

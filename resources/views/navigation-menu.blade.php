@@ -20,24 +20,24 @@
                 class="font-semibold uppercase leading-6 text-white border-b-4 
                 @routeIs('home') 
                     border-rose-600
-                @else
-                    border-transparent hover:border-rose-600 
+@else
+border-transparent hover:border-rose-600 
                 @endif 
                     hover:transition hover:duration-500 hover:ease-in-out">Inicio</a>
             <a href="{{ route('comics.index') }}"
                 class="font-semibold uppercase leading-6 text-white border-b-4 
                 @routeIs('comics.index') 
                     border-rose-600
-                @else
-                    border-transparent hover:border-rose-600 
+@else
+border-transparent hover:border-rose-600 
                 @endif 
                     hover:transition hover:duration-500 hover:ease-in-out">Comics</a>
             <a href="{{ route('search.users') }}"
                 class="font-semibold uppercase leading-6 text-white border-b-4 
                 @routeIs('search.users') 
                     border-rose-600
-                @else
-                    border-transparent hover:border-rose-600 
+@else
+border-transparent hover:border-rose-600 
                 @endif 
                     hover:transition hover:duration-500 hover:ease-in-out">Creadores</a>
             {{-- <a href="{{ route('plan') }}"
@@ -46,16 +46,16 @@
                 class="font-semibold uppercase leading-6 text-white border-b-4 
                 @routeIs('info') 
                     border-rose-600
-                @else
-                    border-transparent hover:border-rose-600 
+@else
+border-transparent hover:border-rose-600 
                 @endif 
                     hover:transition hover:duration-500 hover:ease-in-out">Nosotros</a>
             <a href="{{ route('faq.index') }}"
                 class="font-semibold uppercase leading-6 text-white border-b-4 
                 @routeIs('faq.index') 
                     border-rose-600
-                @else
-                    border-transparent hover:border-rose-600 
+@else
+border-transparent hover:border-rose-600 
                 @endif 
                     hover:transition hover:duration-500 hover:ease-in-out">FAQ</a>
         </div>
@@ -80,6 +80,10 @@
 
                         </a>
                         {{-- @livewire('user.user-money', ['user' => auth()->user()]) --}}
+                        {{-- --}}
+
+                        @livewire('notification.notifications')
+
                     </div>
                     <div class="ml-3 relative">
                         <x-dropdown align="right" width="48">
