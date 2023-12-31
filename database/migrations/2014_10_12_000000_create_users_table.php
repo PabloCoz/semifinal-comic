@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('status')->default(true);
             $table->boolean('is_creator')->default(false);
             $table->string('customer_id')->nullable();
+            $table->integer('notification')->default(0);
             $table->rememberToken();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();

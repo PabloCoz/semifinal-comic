@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\User;
 
 use App\Models\Comic;
 use App\Models\User;
+use App\Notifications\StatusComic;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -46,6 +47,10 @@ class Users extends Component
             $comic->update(['status' => Comic::STANDBY]);
         }
         $user->profile->save();
+        $user->notify(new StatusComic([
+            'url' => route('users', $user),
+            'message' => 'Tu cuenta ha sido verificada como original, actualiza las portadas de tus cómics para que sean visibles en la página principal'
+        ]));
         $this->emitSelf('render');
     }
 }

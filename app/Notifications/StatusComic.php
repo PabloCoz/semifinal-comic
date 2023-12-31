@@ -14,7 +14,7 @@ class StatusComic extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct(public $data)
     {
         //
     }
@@ -35,9 +35,9 @@ class StatusComic extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('The introduction to the notification.')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using our application!');
     }
 
     /**
@@ -52,12 +52,14 @@ class StatusComic extends Notification
         ];
     }
 
-    public function database(object $notifiable): array
+    public function toDatabase(object $notifiable): array
     {
+        $notifiable->notification += 1;
+        $notifiable->save();
+        
         return [
-            'type' => 'status',
-            'message' => 'Your comic has been approved',
-            'comic_id' => $notifiable->id,
+            'url' => $this->data['url'],
+            'message' => $this->data['message']
         ];
     }
 }
