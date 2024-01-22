@@ -78,10 +78,14 @@
                             @endif
                         </td>
                         <th scope="col" class="px-6 py-3">
-                            <a href="{{ route('admin.users.edit', $user) }}"
-                                class="bg-blue-600 text-white font-bold px-3 py-2 rounded-lg">
-                                Editar
-                            </a>
+                            @if ($user->profile)
+                                <a href="{{ route('admin.users.edit', $user) }}"
+                                    class="bg-blue-600 text-white font-bold px-3 py-2 rounded-lg">
+                                    Editar
+                                </a>
+                            @else
+                                <p>No tiene perfíl</p>
+                            @endif
                         </th>
 
                     </tr>
